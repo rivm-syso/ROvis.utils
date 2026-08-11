@@ -18,6 +18,5 @@ Rlib$
 Rlib
 ^Rlib/
 ^\Rlib/
-air.toml
 ^\.positai$
 ^\.claude$
