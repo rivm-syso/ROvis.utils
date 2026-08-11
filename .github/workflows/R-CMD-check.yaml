@@ -13,6 +13,8 @@ permissions: read-all
 jobs:
   R-CMD-check:
     runs-on: ubuntu-latest
+    container:
+      image: daratools/robase:latest
     env:
       # AT_ROvis authenticates installs of private rivm-syso/ROvis.* dependencies
       # (via the Remotes: field in DESCRIPTION). Falls back to the default
@@ -22,12 +24,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - uses: r-lib/actions/setup-pandoc@v2
-
-      - uses: r-lib/actions/setup-r@v2
-        with:
-          use-public-rspm: true
-
+      # R and pandoc are already baked into daratools/robase - no setup-r/setup-pandoc needed.
       - uses: r-lib/actions/setup-r-dependencies@v2
         with:
           extra-packages: any::rcmdcheck

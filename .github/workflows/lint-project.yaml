@@ -23,15 +23,14 @@ jobs:
 
   lintr:
     runs-on: ubuntu-latest
+    container:
+      image: daratools/robase:latest
     env:
       GITHUB_PAT: ${{ secrets.AT_ROvis || secrets.GITHUB_TOKEN }}
     steps:
       - uses: actions/checkout@v4
 
-      - uses: r-lib/actions/setup-r@v2
-        with:
-          use-public-rspm: true
-
+      # R is already baked into daratools/robase - no setup-r needed.
       - uses: r-lib/actions/setup-r-dependencies@v2
         with:
           extra-packages: any::lintr
