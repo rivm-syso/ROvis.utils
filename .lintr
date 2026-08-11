@@ -13,3 +13,8 @@ linters: linters_with_tags(tags = c("default", "common_mistakes", "executing", "
   expect_s4_class_linter = NULL
   )
 encoding: "UTF-8"
+exclusions: list(
+  "R/import-standalone-obj-type.R",
+  "R/import-standalone-types-check.R",
+  "tests/testthat.R"
+  )

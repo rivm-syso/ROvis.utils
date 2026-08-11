@@ -19,7 +19,11 @@ jobs:
       - uses: posit-dev/setup-air@v1
 
       - name: Check formatting
-        run: air format . --check
+        run: |
+          air format . --check || {
+            echo "::error::Code is not formatted with air. Run 'air format .' locally and commit the result (install: curl -LsSf https://github.com/posit-dev/air/releases/latest/download/air-installer.sh | sh)."
+            exit 1
+          }
 
   lintr:
     runs-on: ubuntu-latest
@@ -42,7 +46,12 @@ jobs:
           needs: lint
 
       - name: Lint package
+        id: lint
         run: lintr::lint_package()
         shell: Rscript {0}
         env:
           LINTR_ERROR_ON_LINT: true
+
+      - name: Explain lint failure
+        if: failure() && steps.lint.outcome == 'failure'
+        run: echo "::error::Lint issues found above (file:line:column - message). Run 'lintr::lint_package()' locally to reproduce, fix the code, or adjust .lintr if a rule genuinely shouldn't apply here."
