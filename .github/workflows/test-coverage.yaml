@@ -1,6 +1,6 @@
-# Workflow derived from https://github.com/r-lib/actions/tree/v2/examples
-# Computes test coverage with {covr} and draws a self-hosted shields.io badge
-# straight into README.md - no external coverage service involved.
+# Workflow derived from https://github.com/rivm-syso/DARAutils/blob/main/.github/workflows/test-coverage.yml
+# Computes test coverage with {covr} and publishes a shields.io endpoint badge
+# JSON to the gh-pages branch - no external coverage service involved.
 on:
   push:
     branches: [main]
@@ -13,52 +13,88 @@ permissions:
   contents: write
 
 jobs:
-  test-coverage:
+  coverage:
     runs-on: ubuntu-latest
     container:
       image: daratools/robase:latest
     env:
+      # AT_ROvis authenticates installs of private rivm-syso/ROvis.* dependencies
+      # (via the Remotes: field in DESCRIPTION). Falls back to the default
+      # GITHUB_TOKEN for packages with no private cross-repo dependencies.
       GITHUB_PAT: ${{ secrets.AT_ROvis || secrets.GITHUB_TOKEN }}
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
-      # R is already baked into daratools/robase - no setup-r needed.
-      - uses: r-lib/actions/setup-r-dependencies@v2
+      # rocker-based images run as root; mark the workspace as safe for git,
+      # otherwise git operations below fail with "dubious ownership"
+      - name: Fix git safe directory
+        run: git config --global --add safe.directory "$GITHUB_WORKSPACE"
+
+      # R is already baked into daratools/robase - no setup-r step needed.
+      - name: Setup R dependencies
+        uses: r-lib/actions/setup-r-dependencies@v2
         with:
-          extra-packages: any::covr
+          extra-packages: any::covr, any::jsonlite, any::dplyr
           needs: coverage
 
-      - name: Compute coverage and update badge
+      - name: Run tests and compute coverage
         run: |
-          cov <- covr::package_coverage()
-          print(cov)
-          pct <- covr::percent_coverage(cov)
-
-          colour <- if (pct >= 90) "brightgreen" else
-            if (pct >= 75) "green" else
-            if (pct >= 50) "yellow" else
-            "red"
-
-          # shields.io static badge: /badge/<label>-<message>-<colour>, "%" URL-escaped as %25
-          badge_url <- sprintf("https://img.shields.io/badge/coverage-%.0f%%25-%s", pct, colour)
-
-          readme <- readLines("README.md")
-          i <- grep("img.shields.io/badge/coverage-", readme)
-          if (length(i) == 1) {
-            readme[i] <- sub(
-              "https://img\\.shields\\.io/badge/coverage-[^)\"]+",
-              badge_url,
-              readme[i]
+          cov <- covr::package_coverage(
+            quiet = FALSE,
+            clean = FALSE,
+            install_path = file.path(
+              normalizePath(Sys.getenv("RUNNER_TEMP"), winslash = "/"),
+              "package"
             )
-            writeLines(readme, "README.md")
-          } else {
-            warning("No coverage badge placeholder found in README.md; skipping badge update.")
-          }
+          )
+          covr::to_cobertura(cov)
+          pct <- round(covr::percent_coverage(cov), 1)
+
+          color <- dplyr::case_when(
+            pct >= 90 ~ "brightgreen",
+            pct >= 75 ~ "green",
+            pct >= 60 ~ "yellowgreen",
+            pct >= 50 ~ "yellow",
+            pct >= 40 ~ "orange",
+            TRUE ~ "red"
+          )
+
+          badge <- jsonlite::toJSON(
+            list(
+              schemaVersion = 1,
+              label = "coverage",
+              message = paste0(pct, "%"),
+              color = color
+            ),
+            auto_unbox = TRUE,
+            pretty = TRUE
+          )
+          dir.create("/tmp/badge-output", showWarnings = FALSE, recursive = TRUE)
+          writeLines(badge, "/tmp/badge-output/coverage.json")
+          cat("Coverage:", pct, "%\n")
         shell: Rscript {0}
 
-      - name: Commit updated badge
-        if: github.event_name == 'push'
-        uses: stefanzweifel/git-auto-commit-action@v5
-        with:
-          commit_message: "docs: update coverage badge [skip ci]"
-          file_pattern: README.md
+      - name: Upload coverage badge JSON to GitHub Pages branch
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          # Switch to (or create) the gh-pages branch
+          git fetch origin gh-pages 2>/dev/null || true
+          if git show-ref --quiet refs/remotes/origin/gh-pages; then
+            git checkout gh-pages
+          else
+            git checkout --orphan gh-pages
+            git rm -rf . --quiet
+          fi
+
+          # Place the badge file and commit
+          mkdir -p badges
+          cp /tmp/badge-output/coverage.json badges/coverage.json
+          git add badges/coverage.json
+          git diff --cached --quiet || git commit -m "chore: update coverage badge [skip ci]"
+          git push origin gh-pages
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

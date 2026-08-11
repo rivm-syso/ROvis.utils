@@ -30,6 +30,11 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      # rocker-based images run as root; mark the workspace as safe for git,
+      # otherwise git operations fail with "dubious ownership"
+      - name: Fix git safe directory
+        run: git config --global --add safe.directory "$GITHUB_WORKSPACE"
+
       # R is already baked into daratools/robase - no setup-r needed.
       - uses: r-lib/actions/setup-r-dependencies@v2
         with:
