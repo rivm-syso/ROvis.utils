@@ -1,11 +1,9 @@
 ---
 title: "Working with Color Palettes"
-output:
-  quarto::html_vignette:
-  tabset: TRUE
+format: html
 vignette: >
   %\VignetteIndexEntry{Color Palettes}
-  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEngine{quarto::html}
   %\VignetteEncoding{UTF-8}
 ---
 
