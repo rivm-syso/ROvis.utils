@@ -19,13 +19,19 @@ test_that("ro_show_colors returns correct output", {
   )
 
   # custom named palette
-  plot_custom_named <- ro_show_colors("custom", c(oranje = ro_color("oranje"), groen = ro_color("groen"), roze = ro_color("roze")))
+  plot_custom_named <- ro_show_colors(
+    "custom",
+    c(oranje = ro_color("oranje"), groen = ro_color("groen"), roze = ro_color("roze"))
+  )
   expect_snapshot(
     str(plot_custom_named$x$data)
   )
 
   # custom unnamed palette
-  plot_custom_unnamed <- ro_show_colors("custom", ro_color_seq(ro_color("hemelblauw_tint15"), ro_color("hemelblauw"), 3))
+  plot_custom_unnamed <- ro_show_colors(
+    "custom",
+    ro_color_seq(ro_color("hemelblauw_tint15"), ro_color("hemelblauw"), 3)
+  )
   expect_snapshot(
     str(plot_custom_unnamed$x$data)
   )

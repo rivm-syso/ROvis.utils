@@ -17,7 +17,8 @@ test_that("color_seq_named return the right output", {
     ro_color_seq_named(cat_names = cat_names_vec, low_col = "BLOO")
   )
 
-  expect_error( # Expect error that at least 2 categories are needed
+  expect_error(
+    # Expect error that at least 2 categories are needed
     ro_color_seq_named(c("category_1"))
   )
 })

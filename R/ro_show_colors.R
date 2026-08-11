@@ -82,16 +82,17 @@ ro_show_colors <- function(palette_name = "full", custom_colors = NULL) {
 #' ro_color("robijnrood"), 12)))
 #'
 get_color_palette <- function(palette_name, custom_colors = NULL) {
-  palette_name <- arg_match(palette_name,
-                            c(
-                              "full",
-                              "categorical",
-                              "gender_con",
-                              "gender_unc",
-                              "greys",
-                              "custom"
-                            ),
-                            error_call = caller_env()
+  palette_name <- arg_match(
+    palette_name,
+    c(
+      "full",
+      "categorical",
+      "gender_con",
+      "gender_unc",
+      "greys",
+      "custom"
+    ),
+    error_call = caller_env()
   )
 
   if (palette_name == "custom") {
@@ -176,7 +177,10 @@ ro_gg_create_palette <- function(df, palette_name, palette) {
   plot_palette <- ggplot(
     df,
     aes(
-      x = 1, y = .data$number, fill = .data$name, label = .data$name,
+      x = 1,
+      y = .data$number,
+      fill = .data$name,
+      label = .data$name,
       text = str_c("<b> Color number ", .data$number, ": ", .data$name, " (", .data$hex, ")</b>")
     )
   ) +

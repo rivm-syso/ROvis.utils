@@ -34,11 +34,13 @@
 #' @family echarts4r
 #' @family ggplot2
 #' @export
-ro_color_seq_named <- function(cat_names,
-                               low_col = "robijnrood",
-                               high_col = "robijnrood_tint15",
-                               NA_cat_name = "NA",
-                               NA_cat_col = "grijs_5") {
+ro_color_seq_named <- function(
+  cat_names,
+  low_col = "robijnrood",
+  high_col = "robijnrood_tint15",
+  NA_cat_name = "NA",
+  NA_cat_col = "grijs_5"
+) {
   if (length(cat_names) < 2) {
     cli_abort("{.var cat_names} should be a vector of at least 2 categories to generate a gradient!")
   }
