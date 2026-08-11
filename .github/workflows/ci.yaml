@@ -137,6 +137,49 @@ jobs:
           upload-snapshots: true
           build_args: 'c("--no-manual", "--compact-vignettes=gs+qpdf")'
 
+  ci-badge:
+    needs: [air-format, R-CMD-check]
+    # Runs even when air-format/R-CMD-check fail (needs.*.result may be
+    # 'failure') so the badge can turn red instead of just not updating.
+    if: always() && github.event_name == 'push' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v5
+
+      - name: Push CI badge to gh-pages
+        run: |
+          if [ "${{ needs.air-format.result }}" = "success" ] && [ "${{ needs.R-CMD-check.result }}" = "success" ]; then
+            COLOR="brightgreen"; MESSAGE="passing"
+          else
+            COLOR="red"; MESSAGE="failing"
+          fi
+
+          mkdir -p /tmp/badge-output
+          printf '{\n  "schemaVersion": 1,\n  "label": "CI",\n  "message": "%s",\n  "color": "%s"\n}\n' \
+            "$MESSAGE" "$COLOR" > /tmp/badge-output/ci.json
+
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          git fetch origin gh-pages 2>/dev/null || true
+          if git show-ref --quiet refs/remotes/origin/gh-pages; then
+            git checkout gh-pages
+          else
+            git checkout --orphan gh-pages
+            git rm -rf . --quiet
+          fi
+
+          mkdir -p badges
+          cp /tmp/badge-output/ci.json badges/ci.json
+          git add badges/ci.json
+          git diff --cached --quiet || git commit -m "chore: update CI badge [skip ci]"
+          git push origin gh-pages
+        env:
+          GITHUB_TOKEN: ${{ secrets.AT_ROvis || secrets.GITHUB_TOKEN }}
+
   test-coverage:
     needs: R-CMD-check
     if: github.event_name == 'push' || github.event_name == 'pull_request'
