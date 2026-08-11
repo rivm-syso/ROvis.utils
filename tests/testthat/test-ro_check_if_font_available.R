@@ -1,5 +1,5 @@
 test_that("check_font_available returns the font when it is installed", {
-  expect_equal(ro_check_if_font_available("Verdana"), "Verdana")
+  expect_identical(ro_check_if_font_available("Verdana"), "Verdana")
 })
 
 test_that("check_font_available returns Verdana when the RO font is absent", {
@@ -13,7 +13,7 @@ test_that("check_font_available returns Verdana when the RO font is absent", {
     "Fall-back font"
   )
   result <- suppressMessages(ro_check_if_font_available("RijksoverheidSansWebText"))
-  expect_equal(result, "Verdana")
+  expect_identical(result, "Verdana")
 })
 
 test_that("check_font_available aborts for an unavailable custom font", {

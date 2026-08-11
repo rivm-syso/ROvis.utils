@@ -21,7 +21,7 @@ ro_group_badge <- function(group) {
   valid <- c("ggplot2", "echarts4r", "plotly", "gt", "DT", "toegankelijkheid", "huisstijl")
   group <- vapply(
     group,
-    rlang::arg_match0,
+    arg_match0,
     FUN.VALUE = character(1),
     values = valid
   )
