@@ -179,7 +179,15 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   pkgdown:
-    if: github.event_name != 'pull_request'
+    needs: test-coverage
+    # test-coverage only runs on push/pull_request (see its `if:`), so on a
+    # release/workflow_dispatch trigger it's skipped rather than successful -
+    # explicitly allow that here, otherwise the default needs-gating would
+    # skip this job too.
+    if: |
+      github.event_name != 'pull_request' &&
+      !cancelled() &&
+      (needs.test-coverage.result == 'success' || needs.test-coverage.result == 'skipped')
     runs-on: ubuntu-latest
     container:
       image: daratools/robase:latest
@@ -209,6 +217,10 @@ jobs:
       - name: Build pkgdown site
         run: pkgdown::build_site_github_pages(new_process = FALSE, install = FALSE)
         shell: Rscript {0}
+
+      - name: Install rsync
+        run: |
+          apt-get update && apt-get install -y rsync
 
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
