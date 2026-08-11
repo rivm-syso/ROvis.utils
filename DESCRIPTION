@@ -17,12 +17,14 @@ Imports:
     stringr,
     systemfonts,
     tibble
-Suggests: 
+Suggests:
     covr (>= 3.6.4),
     pkgdown (>= 2.0.9),
     quarto (>= 1.4),
     remotes,
     knitr,
+    lubridate,
+    tidyr,
     testthat (>= 3.0.0)
 VignetteBuilder: quarto
 Config/roxygen2/markdown: TRUE

@@ -17,7 +17,10 @@ In the [Getting started with ROvis vignette](getting-started-ROvis.html) you lea
 
 First, we need to load the required packages.
 ```{r libraries, message=FALSE}
-library(tidyverse)
+library(dplyr)
+library(tidyr)
+library(lubridate)
+library(ggplot2)
 library(ROvis.utils) # nolint: missing_package_linter
 ```
 
