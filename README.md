@@ -1,5 +1,11 @@
 # ROvis.utils
 
+<!-- badges: start -->
+[![R-CMD-check](https://github.com/rivm-syso/ROvis.utils/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/rivm-syso/ROvis.utils/actions/workflows/R-CMD-check.yaml)
+[![Coverage](https://img.shields.io/badge/coverage-unknown-lightgrey)](https://github.com/rivm-syso/ROvis.utils/actions/workflows/test-coverage.yaml)
+[![Lint](https://github.com/rivm-syso/ROvis.utils/actions/workflows/lint-project.yaml/badge.svg)](https://github.com/rivm-syso/ROvis.utils/actions/workflows/lint-project.yaml)
+<!-- badges: end -->
+
 ## Rijksoverheid Visualisatie - utils
 
 ## Description
@@ -8,9 +14,10 @@ ROvis.utils is an R package that provides a comprehensive suite of utilities for
 ## Installation
 
 ```r
-# Install from GitLab
-# install.packages("devtools")
-devtools::install_gitlab("spin/ROvis.utils", host = "gitlab.rivm.nl")
+# Install from GitHub (private repo - requires GitHub auth, e.g. a PAT
+# via usethis::create_github_token() / gitcreds, since this repo is private)
+# install.packages("remotes")
+remotes::install_github("rivm-syso/ROvis.utils")
 ```
 
 For more information, check out the [wiki page about daratools](https://gitlab.rivm.nl/dara/wiki/-/wikis/DARAtools).
