@@ -1,0 +1,25 @@
+<urlset xmlns = 'http://www.sitemaps.org/schemas/sitemap/0.9'>
+<url><loc>/404.html</loc></url>
+<url><loc>/LICENSE.html</loc></url>
+<url><loc>/articles/color-palettes.html</loc></url>
+<url><loc>/articles/index.html</loc></url>
+<url><loc>/authors.html</loc></url>
+<url><loc>/index.html</loc></url>
+<url><loc>/news/index.html</loc></url>
+<url><loc>/reference/ROvis.utils-package.html</loc></url>
+<url><loc>/reference/get_color_palette.html</loc></url>
+<url><loc>/reference/index.html</loc></url>
+<url><loc>/reference/ro_check_if_font_available.html</loc></url>
+<url><loc>/reference/ro_color.html</loc></url>
+<url><loc>/reference/ro_color_categorical.html</loc></url>
+<url><loc>/reference/ro_color_palette.html</loc></url>
+<url><loc>/reference/ro_color_seq.html</loc></url>
+<url><loc>/reference/ro_color_seq_named.html</loc></url>
+<url><loc>/reference/ro_color_validate.html</loc></url>
+<url><loc>/reference/ro_get_color_palette.html</loc></url>
+<url><loc>/reference/ro_gg_create_palette.html</loc></url>
+<url><loc>/reference/ro_group_badge.html</loc></url>
+<url><loc>/reference/ro_show_colors.html</loc></url>
+<url><loc>/reference/ro_show_colors_get_df.html</loc></url>
+</urlset>
+
