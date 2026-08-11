@@ -1,9 +1,9 @@
 # ROvis.utils
 
 <!-- badges: start -->
-[![R-CMD-check](https://github.com/rivm-syso/ROvis.utils/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/rivm-syso/ROvis.utils/actions/workflows/R-CMD-check.yaml)
-[![Coverage](https://img.shields.io/endpoint?url=https://rivm-syso.github.io/ROvis.utils/badges/coverage.json)](https://github.com/rivm-syso/ROvis.utils/actions/workflows/test-coverage.yaml)
-[![Lint](https://github.com/rivm-syso/ROvis.utils/actions/workflows/lint-project.yaml/badge.svg)](https://github.com/rivm-syso/ROvis.utils/actions/workflows/lint-project.yaml)
+[![CI](https://github.com/rivm-syso/ROvis.utils/actions/workflows/ci.yaml/badge.svg?branch=main)](https://github.com/rivm-syso/ROvis.utils/actions/workflows/ci.yaml)
+[![Lint](https://img.shields.io/endpoint?url=https://rivm-syso.github.io/ROvis.utils/badges/lint.json)](https://github.com/rivm-syso/ROvis.utils/actions/workflows/ci.yaml)
+[![Coverage](https://img.shields.io/endpoint?url=https://rivm-syso.github.io/ROvis.utils/badges/coverage.json)](https://github.com/rivm-syso/ROvis.utils/actions/workflows/ci.yaml)
 <!-- badges: end -->
 
 ## Rijksoverheid Visualisatie - utils

@@ -34,6 +34,8 @@ jobs:
     runs-on: ubuntu-latest
     container:
       image: daratools/robase:latest
+    permissions:
+      contents: write
     env:
       GITHUB_PAT: ${{ secrets.AT_ROvis || secrets.GITHUB_TOKEN }}
     steps:
@@ -50,16 +52,60 @@ jobs:
           extra-packages: any::lintr
           needs: lint
 
+      # Deliberately doesn't use LINTR_ERROR_ON_LINT here: we need the lint
+      # count available afterwards to write the badge, and to fail the job
+      # explicitly only once the badge has been pushed.
       - name: Lint package
         id: lint
-        run: lintr::lint_package()
+        run: |
+          lints <- lintr::lint_package()
+          n <- length(lints)
+          cat("Lint issues found:", n, "\n")
+          if (n > 0) print(lints)
+          writeLines(as.character(n), "lint_count.txt")
         shell: Rscript {0}
-        env:
-          LINTR_ERROR_ON_LINT: true
 
-      - name: Explain lint failure
-        if: failure() && steps.lint.outcome == 'failure'
-        run: echo "::error::Lint issues found above (file:line:column - message). Run 'lintr::lint_package()' locally to reproduce, fix the code, or adjust .lintr if a rule genuinely shouldn't apply here."
+      - name: Push lint badge to gh-pages
+        if: always() && github.event_name == 'push' && github.ref == 'refs/heads/main'
+        run: |
+          N=$(cat lint_count.txt 2>/dev/null || echo "0")
+          if [ "$N" -eq 0 ]; then
+            COLOR="brightgreen"; MESSAGE="passing"
+          else
+            COLOR="red"; MESSAGE="${N} issue(s)"
+          fi
+
+          mkdir -p /tmp/badge-output
+          printf '{\n  "schemaVersion": 1,\n  "label": "lintr",\n  "message": "%s",\n  "color": "%s"\n}\n' \
+            "$MESSAGE" "$COLOR" > /tmp/badge-output/lint.json
+
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          git fetch origin gh-pages 2>/dev/null || true
+          if git show-ref --quiet refs/remotes/origin/gh-pages; then
+            git checkout gh-pages
+          else
+            git checkout --orphan gh-pages
+            git rm -rf . --quiet
+          fi
+
+          mkdir -p badges
+          cp /tmp/badge-output/lint.json badges/lint.json
+          git add badges/lint.json
+          git diff --cached --quiet || git commit -m "chore: update lint badge [skip ci]"
+          git push origin gh-pages
+        env:
+          GITHUB_TOKEN: ${{ secrets.AT_ROvis || secrets.GITHUB_TOKEN }}
+
+      - name: Fail if lint issues found
+        if: always()
+        run: |
+          N=$(cat lint_count.txt 2>/dev/null || echo "0")
+          if [ "$N" -ne 0 ]; then
+            echo "::error::$N lint issue(s) found above (file:line:column - message). Run 'lintr::lint_package()' locally to reproduce, fix the code, or adjust .lintr if a rule genuinely shouldn't apply here."
+            exit 1
+          fi
 
   R-CMD-check:
     if: github.event_name == 'push' || github.event_name == 'pull_request'
