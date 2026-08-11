@@ -176,7 +176,7 @@ jobs:
           git diff --cached --quiet || git commit -m "chore: update coverage badge [skip ci]"
           git push origin gh-pages
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.AT_ROvis || secrets.GITHUB_TOKEN }}
 
   pkgdown:
     needs: test-coverage
@@ -217,10 +217,6 @@ jobs:
       - name: Build pkgdown site
         run: pkgdown::build_site_github_pages(new_process = FALSE, install = FALSE)
         shell: Rscript {0}
-
-      - name: Install rsync
-        run: |
-          apt-get update && apt-get install -y rsync
 
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
