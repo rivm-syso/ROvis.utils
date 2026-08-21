@@ -24,9 +24,9 @@ Can be one of:
 \item{custom_colors}{Character or vector of characters. Should be hexadecimal code(s) (#RRGGBB).
 
 It is advised to use the other ROvis color functions. To access the hex color
-code of a specific color, use the the ROvis function \link[ROvis]{ro_color}.
+code of a specific color, use the \link{ro_color} function.
 To access a vector of hex color codes of the categorical palette, use the ROvis
-function \link[ROvis]{ro_color_categorical}.}
+function \link{ro_color_categorical}.}
 }
 \value{
 Color palette in the Viewer pane.
@@ -39,7 +39,7 @@ Hoover over the palette to view the hex color codes.
 \section{Dependencies}{
 
 \itemize{
-\item \link[ROvis]{ro_color_palette}
+\item \link{ro_color_palette}
 }
 }
 

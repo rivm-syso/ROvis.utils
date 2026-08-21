@@ -6,6 +6,8 @@
 \alias{ROvis.utils-package}
 \title{ROvis.utils: Rijksoverheid Visualisatie - utils}
 \description{
+\if{html}{\figure{logo.png}{options: style='float: right' alt='logo' width='120'}}
+
 ROvis.utils is an R package that provides a comprehensive suite of utilities for visualizing in Rijksoverheid style.
 }
 \author{

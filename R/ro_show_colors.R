@@ -1,6 +1,6 @@
 #' Show RIVM color palette
 #' @section Dependencies:
-#'  * \link[ROvis]{ro_color_palette}
+#'  * \link{ro_color_palette}
 #'
 #' @description
 #' `r ro_group_badge(c('DT', 'echarts4r', 'ggplot2', 'gt', 'plotly'))`
@@ -19,9 +19,9 @@
 #' @param custom_colors Character or vector of characters. Should be hexadecimal code(s) (#RRGGBB).
 #'
 #' It is advised to use the other ROvis color functions. To access the hex color
-#' code of a specific color, use the the ROvis function \link[ROvis]{ro_color}.
+#' code of a specific color, use the \link{ro_color} function.
 #' To access a vector of hex color codes of the categorical palette, use the ROvis
-#' function \link[ROvis]{ro_color_categorical}.
+#' function \link{ro_color_categorical}.
 #' @family ggplot2
 #' @examples
 #' \dontrun{

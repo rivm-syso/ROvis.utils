@@ -25,7 +25,7 @@ named vector with hex color codes
 \section{Dependencies}{
 
 \itemize{
-\item \link[ROvis]{ro_color}
+\item \link{ro_color}
 }
 }
 
