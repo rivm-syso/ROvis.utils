@@ -1,10 +1,10 @@
-# ROvis.utils <a href="https://github.com/rivm-syso/ROvis.utils"><img src="man/figures/logo.png" align="right" height="138" /></a>
-
 <!-- badges: start -->
 [![CI](https://img.shields.io/endpoint?url=https://rivm-syso.github.io/ROvis.utils/badges/ci.json)](https://github.com/rivm-syso/ROvis.utils/actions/workflows/ci.yaml)
 [![Lint](https://img.shields.io/endpoint?url=https://rivm-syso.github.io/ROvis.utils/badges/lint.json)](https://github.com/rivm-syso/ROvis.utils/actions/workflows/ci.yaml)
 [![Coverage](https://img.shields.io/endpoint?url=https://rivm-syso.github.io/ROvis.utils/badges/coverage.json)](https://github.com/rivm-syso/ROvis.utils/actions/workflows/ci.yaml)
 <!-- badges: end -->
+
+# ROvis.utils <a href="https://github.com/rivm-syso/ROvis.utils"><img src="man/figures/logo.png" align="right" height="138" /></a>
 
 ## Rijksoverheid Visualisatie - utils
 
@@ -20,26 +20,32 @@ ROvis.utils is an R package that provides a comprehensive suite of utilities for
 remotes::install_github("rivm-syso/ROvis.utils")
 ```
 
-For more information, check out the [wiki page about daratools](https://gitlab.rivm.nl/dara/wiki/-/wikis/DARAtools).
-
-
 ## Usage
-*Use examples liberally, and show the expected output if you can. It's helpful to have the smallest example of usage that you can demonstrate inline, while providing links to more sophisticated examples if they are too long to reasonably include in the README.*
+
+```r
+library(ROvis.utils)
+
+# Get the hex code for a named RIVM color
+ro_color("robijnrood")
+#> [1] "#ca005d"
+
+# Get the full categorical color palette
+ro_color_categorical()
+```
 
 ## Support
-First point of contact for questions: ROvis team (spin@rivm.nl)
+First point of contact for questions: SPIN team (spin@rivm.nl)
 
 ## Roadmap
 *If you have ideas for releases in the future, it is a good idea to list them in the README.*
 
 ## Contributing
-*State if you are open to contributions and what your requirements are for accepting them.*
+See [CONTRIBUTING.md](.github/CONTRIBUTING.md) for guidelines on how to contribute, and [CONTRIBUTORS.md](CONTRIBUTORS.md) for the list of contributors.
 
 ## Instructions for developers 
 
-Check out the [wiki page about r packages](https://gitlab.rivm.nl/dara/wiki/-/wikis/DARAtools) 
-for elaborate information about R package development. Below we describe the most important 
-guidelines and practicalities.
+Below we describe the most important guidelines and practicalities for R package
+development on this project.
 
 
 ### Requirements
@@ -49,13 +55,13 @@ development to adhere to standards for R packages and make developing easier! In
 in your Rstudio environment:
 
 ```r
-install.packages(testthat)
-install.packages(lintr)
-install.packages(roxygen2)
-install.packages(quarto)
-install.packages(pkgdown)
-install.packages(devtools)
-install.packages(usethis)
+install.packages("testthat")
+install.packages("lintr")
+install.packages("roxygen2")
+install.packages("quarto")
+install.packages("pkgdown")
+install.packages("devtools")
+install.packages("usethis")
 ```
 
 ### Guidelines
@@ -68,11 +74,10 @@ To ensure code standardization and quality, follow these guidelines:
 the `min_version` argument to specify a minimum version. 
 - Add a new function dependency to the NAMESPACE with `usethis::use_import_from()`
 - Add documentation to new functions by inserting a roxygen skeleton and use `devtools::document()` to
-create automatic documentation in the `man` folder, for more information check out this 
-[wiki section](https://gitlab.rivm.nl/dara/wiki/-/wikis/Create%20your%20own%20R%20packages#documentation)
+create automatic documentation in the `man` folder
 
 ## Authors and acknowledgment
-This R packages was created by ROvis team (spin@rivm.nl).
+This R package was created by the SPIN team (spin@rivm.nl).
 
 ## License
-*For open source projects, indicate how it is licensed.*
+This package is licensed under the Apache License 2.0. See [LICENSE.md](LICENSE.md) for details.
