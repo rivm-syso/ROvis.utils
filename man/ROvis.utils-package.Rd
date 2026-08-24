@@ -4,11 +4,11 @@
 \name{ROvis.utils-package}
 \alias{ROvis.utils}
 \alias{ROvis.utils-package}
-\title{ROvis.utils: Rijksoverheid Visualisatie - utils}
+\title{ROvis.utils: Utilities for Rijksoverheid-Styled Data Visualizations}
 \description{
 \if{html}{\figure{logo.png}{options: style='float: right' alt='logo' width='120'}}
 
-ROvis.utils is an R package that provides a comprehensive suite of utilities for visualizing in Rijksoverheid style.
+Provides shared utilities for the ROvis suite, including Rijksoverheid color palettes, palette validation, and font-availability checks, so that themes across the ROvis packages stay consistent with official Rijksoverheid design guidelines.
 }
 \author{
 \strong{Maintainer}: ROvis team \email{spin@rivm.nl}
