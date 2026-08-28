@@ -5,8 +5,8 @@
 #' This function checks if each color in the provided vector is a valid hex color
 #' code in the format `#RRGGBB`.
 #' If any invalid color codes are found, an error message is triggered.
-#' It is a helper function (not exported) used both in \link[ROvis]{ro_color_seq} and
-#' \link[ROvis]{ro_show_colors}
+#' It is a helper function (not exported) used both in \link{ro_color_seq} and
+#' \link{ro_show_colors}
 #'
 #' @param colors A character vector of color codes to validate.
 #'

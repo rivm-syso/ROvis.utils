@@ -8,7 +8,7 @@
 #' This could be a transition from a light to a dark shade, or one color to a different color,
 #' see examples. Uses \code{pal_seq_gradient()} from the scales package under the hood.
 #'
-#' To access the hex color code of a specific color, use the the ROvis function \link[ROvis]{ro_color}.
+#' To access the hex color code of a specific color, use the \link{ro_color} function.
 #'
 #' @param low Character. The hexadecimal code (#RRGGBB) of the color for 'low' values.
 #' This color will be the first hex code of the sequence.

@@ -3,7 +3,7 @@
 #' `r ro_group_badge(c('echarts4r', 'ggplot2', 'plotly'))`
 #'
 #' @section Dependencies:
-#'  * \link[ROvis]{ro_color}
+#'  * \link{ro_color}
 #'
 #' @param palette_name one of:
 #' * "full": all 18 RIVM colors (full color, 100% tint)

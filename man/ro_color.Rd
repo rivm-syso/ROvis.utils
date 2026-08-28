@@ -25,11 +25,11 @@ returns the (array of) hex color code(s)
 Returns hex code(s) of color_name. All 18 RIVM colors and their
 lighter shades can be accessed with this function. The names of
 RIVM colors are listed at the  rijkshuisstijl website, or, can be viewed by
-running another ROvis function \link[ROvis]{ro_show_colors}.
+running another function, \link{ro_show_colors}.
 
 To access a vector of hex color codes of the categorical palette, use the ROvis
 
-function \link[ROvis]{ro_color_categorical}.
+function \link{ro_color_categorical}.
 }
 \examples{
 ro_color()

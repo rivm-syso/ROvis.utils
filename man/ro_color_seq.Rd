@@ -26,7 +26,7 @@ length where these colors gradually fade into one another.
 This could be a transition from a light to a dark shade, or one color to a different color,
 see examples. Uses \code{pal_seq_gradient()} from the scales package under the hood.
 
-To access the hex color code of a specific color, use the the ROvis function \link[ROvis]{ro_color}.
+To access the hex color code of a specific color, use the \link{ro_color} function.
 }
 \examples{
 ro_color_seq("#F7D9E7", "#CA005D", 5)
