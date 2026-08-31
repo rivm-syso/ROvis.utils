@@ -11,7 +11,7 @@ vignette: >
 knitr::opts_chunk$set(echo = TRUE, fig.width = 8, fig.height = 5)
 ```
 
-In the [Getting started with ROvis vignette](getting-started-ROvis.html) you learned how to explore colors and how to use the `ro_color()` function in your ggplots. You also learned how to use the categorical color palette. However, ROvis also has functions to create color sequences to help you with visualizing ordinal and continuous data.
+In the [Getting started with ROvis vignette](https://rivm-syso.github.io/ROvis.ggplot2/articles/getting-started-rovis.html) you learned how to explore colors and how to use the `ro_color()` function in your ggplots. You also learned how to use the categorical color palette. However, ROvis also has functions to create color sequences to help you with visualizing ordinal and continuous data.
 
 ## Loading data
 
