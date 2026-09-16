@@ -4,16 +4,19 @@
 \alias{ro_check_if_font_available}
 \title{Check whether a font family is available on the system}
 \usage{
-ro_check_if_font_available(base_family)
+ro_check_if_font_available(target_font_family)
 }
 \arguments{
-\item{base_family}{Character. Font family name to check.}
+\item{target_font_family}{Character. Font family name to check. No
+default: this is a validation function, so a sensible default (e.g.
+\code{"RijksoverheidSansWebText"}) belongs in the calling plotting functions
+(e.g. \code{ro_gg_theme()}, \code{ro_ply_theme()}), not here.}
 }
 \value{
-The resolved font family name: \code{base_family} itself if installed;
-otherwise, for the RO font, the first available font among \code{"Verdana"}
-and \code{"Arial"}, or (if neither is installed) the first font found on the
-system. Aborts for any other unavailable font.
+The resolved font family name: \code{target_font_family} itself if
+installed; otherwise, for the RO font, the first available font among
+\code{"Verdana"} and \code{"Arial"}, or (if neither is installed) the first font
+found on the system. Aborts for any other unavailable font.
 }
 \description{
 \ifelse{html}{\figure{group-DT.svg}{options: alt='[DT]'}}{\strong{[DT]}}\ifelse{html}{\figure{group-echarts4r.svg}{options: alt='[echarts4r]'}}{\strong{[echarts4r]}}\ifelse{html}{\figure{group-ggplot2.svg}{options: alt='[ggplot2]'}}{\strong{[ggplot2]}}\ifelse{html}{\figure{group-gt.svg}{options: alt='[gt]'}}{\strong{[gt]}}\ifelse{html}{\figure{group-plotly.svg}{options: alt='[plotly]'}}{\strong{[plotly]}}\cr\cr

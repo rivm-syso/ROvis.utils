@@ -15,61 +15,72 @@
 #' @family plotly
 #' @family echarts4r
 #' @family DT
-#' @param base_family Character. Font family name to check.
-#' @return The resolved font family name: `base_family` itself if installed;
-#'   otherwise, for the RO font, the first available font among `"Verdana"`
-#'   and `"Arial"`, or (if neither is installed) the first font found on the
-#'   system. Aborts for any other unavailable font.
+#' @param target_font_family Character. Font family name to check. No
+#'   default: this is a validation function, so a sensible default (e.g.
+#'   `"RijksoverheidSansWebText"`) belongs in the calling plotting functions
+#'   (e.g. `ro_gg_theme()`, `ro_ply_theme()`), not here.
+#' @return The resolved font family name: `target_font_family` itself if
+#'   installed; otherwise, for the RO font, the first available font among
+#'   `"Verdana"` and `"Arial"`, or (if neither is installed) the first font
+#'   found on the system. Aborts for any other unavailable font.
 #' @export
-ro_check_if_font_available <- function(base_family) {
-  fonts <- system_fonts()$family
+ro_check_if_font_available <- function(target_font_family) {
+  installed_fonts <- system_fonts()$family
 
-  if (base_family %in% fonts) {
-    return(base_family)
+  if (target_font_family %in% installed_fonts) {
+    return(target_font_family)
   }
 
-  # When the user requests a font other than RO, it doesn't follow the fall-back chain,
-  # instead it aborts. The fall-back chain is only designed for RO, not for other fonts.
-  if (base_family != "RijksoverheidSansWebText") {
+  # The fall-back chain below only exists for the RO font. Any other font
+  # the user asked for but that isn't installed is a hard error, since we
+  # have no reasonable substitute to guess for an arbitrary font name.
+  is_ro_font <- target_font_family == "RijksoverheidSansWebText"
+  if (!is_ro_font) {
     cli_abort(
       c(
-        "!" = "Can't find the {.var base_family} = {.val {base_family}} in installed fonts.",
+        "!" = "Can't find the {.var target_font_family} = {.val {target_font_family}} in installed fonts.",
         "i" = "Check installed system fonts with {.code systemfonts::system_fonts()}"
       )
     )
   }
 
-  # Fall-back chain
+  # RO font requested but not installed: try the preferred fall-back fonts,
+  # in order, and use the first one that is actually installed.
   fallback_fonts <- c("Verdana", "Arial")
-  available_fallback <- fallback_fonts[fallback_fonts %in% fonts]
+  available_fallback_fonts <- fallback_fonts[fallback_fonts %in% installed_fonts]
 
-  if (length(available_fallback) > 0) {
-    chosen <- available_fallback[[1]]
+  if (length(available_fallback_fonts) > 0) {
+    chosen_font <- available_fallback_fonts[[1]]
     cli_inform(
       c(
-        "Can't find the {.var base_family} = {.val {base_family}} in installed fonts.",
-        "i" = "Fall-back font is set to {.val {chosen}}."
+        "Can't find the {.var target_font_family} = {.val {target_font_family}} in installed fonts.",
+        "i" = "Fall-back font is set to {.val {chosen_font}}."
       )
     )
-    return(chosen)
+    return(chosen_font)
   }
 
-  if (length(fonts) > 0) {
-    chosen <- fonts[[1]]
+  # Neither the RO font nor its fall-backs are installed (e.g. bare
+  # Linux/CI images that ship no fonts at all): fall back further to
+  # whatever font is actually present, rather than aborting outright.
+  if (length(installed_fonts) > 0) {
+    chosen_font <- installed_fonts[[1]]
     cli_inform(
       c(
-        "!" = "Can't find the {.var base_family} = {.val {base_family}} in installed fonts, and
+        "!" = "Can't find the {.var target_font_family} = {.val {target_font_family}} in installed fonts, and
         neither fall-back fonts, {.val Verdana} and {.val Arial}, are installed.",
-        "i" = "Falling back to {.val {chosen}}, the first font found on this system. Check
+        "i" = "Falling back to {.val {chosen_font}}, the first font found on this system. Check
         installed system fonts with {.code systemfonts::system_fonts()}."
       )
     )
-    return(chosen)
+    return(chosen_font)
   }
 
+  # No fonts found on the system at all: there's nothing left to fall back
+  # to.
   cli_abort(
     c(
-      "!" = "Can't find the {.var base_family} = {.val {base_family}} in installed fonts, and no
+      "!" = "Can't find the {.var target_font_family} = {.val {target_font_family}} in installed fonts, and no
       fonts could be found on this system at all.",
       "i" = "Check installed system fonts with {.code systemfonts::system_fonts()}"
     )
