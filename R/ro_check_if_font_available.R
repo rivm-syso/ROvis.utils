@@ -19,12 +19,19 @@
 #'   default: this is a validation function, so a sensible default (e.g.
 #'   `"RijksoverheidSansWebText"`) belongs in the calling plotting functions
 #'   (e.g. `ro_gg_theme()`, `ro_ply_theme()`), not here.
+#' @param arg,call Passed on to [rlang::abort()]/[cli::cli_abort()] so that
+#'   messages cite the argument name used by the calling function (e.g.
+#'   `base_family` in `ro_gg_theme()`) instead of this function's own
+#'   `target_font_family` parameter. Only relevant for programmatic callers
+#'   that want to override the automatically detected argument name.
 #' @return The resolved font family name: `target_font_family` itself if
 #'   installed; otherwise, for the RO font, the first available font among
 #'   `"Verdana"` and `"Arial"`, or (if neither is installed) the first font
 #'   found on the system. Aborts for any other unavailable font.
 #' @export
-ro_check_if_font_available <- function(target_font_family) {
+ro_check_if_font_available <- function(target_font_family,
+                                       arg = caller_arg(target_font_family),
+                                       call = caller_env()) {
   installed_fonts <- system_fonts()$family
 
   if (target_font_family %in% installed_fonts) {
@@ -38,9 +45,10 @@ ro_check_if_font_available <- function(target_font_family) {
   if (!is_ro_font) {
     cli_abort(
       c(
-        "!" = "Can't find the {.var target_font_family} = {.val {target_font_family}} in installed fonts.",
+        "!" = "Can't find the {.var {arg}} = {.val {target_font_family}} in installed fonts.",
         "i" = "Check installed system fonts with {.code systemfonts::system_fonts()}"
-      )
+      ),
+      call = call
     )
   }
 
@@ -53,7 +61,7 @@ ro_check_if_font_available <- function(target_font_family) {
     chosen_font <- available_fallback_fonts[[1]]
     cli_inform(
       c(
-        "Can't find the {.var target_font_family} = {.val {target_font_family}} in installed fonts.",
+        "Can't find the {.var {arg}} = {.val {target_font_family}} in installed fonts.",
         "i" = "Fall-back font is set to {.val {chosen_font}}."
       )
     )
@@ -67,7 +75,7 @@ ro_check_if_font_available <- function(target_font_family) {
     chosen_font <- installed_fonts[[1]]
     cli_inform(
       c(
-        "!" = "Can't find the {.var target_font_family} = {.val {target_font_family}} in installed fonts, and
+        "!" = "Can't find the {.var {arg}} = {.val {target_font_family}} in installed fonts, and
         neither fall-back fonts, {.val Verdana} and {.val Arial}, are installed.",
         "i" = "Falling back to {.val {chosen_font}}, the first font found on this system. Check
         installed system fonts with {.code systemfonts::system_fonts()}."
@@ -80,9 +88,10 @@ ro_check_if_font_available <- function(target_font_family) {
   # to.
   cli_abort(
     c(
-      "!" = "Can't find the {.var target_font_family} = {.val {target_font_family}} in installed fonts, and no
+      "!" = "Can't find the {.var {arg}} = {.val {target_font_family}} in installed fonts, and no
       fonts could be found on this system at all.",
       "i" = "Check installed system fonts with {.code systemfonts::system_fonts()}"
-    )
+    ),
+    call = call
   )
 }

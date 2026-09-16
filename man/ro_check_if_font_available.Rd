@@ -4,13 +4,23 @@
 \alias{ro_check_if_font_available}
 \title{Check whether a font family is available on the system}
 \usage{
-ro_check_if_font_available(target_font_family)
+ro_check_if_font_available(
+  target_font_family,
+  arg = caller_arg(target_font_family),
+  call = caller_env()
+)
 }
 \arguments{
 \item{target_font_family}{Character. Font family name to check. No
 default: this is a validation function, so a sensible default (e.g.
 \code{"RijksoverheidSansWebText"}) belongs in the calling plotting functions
 (e.g. \code{ro_gg_theme()}, \code{ro_ply_theme()}), not here.}
+
+\item{arg, call}{Passed on to \code{\link[rlang:abort]{rlang::abort()}}/\code{\link[cli:cli_abort]{cli::cli_abort()}} so that
+messages cite the argument name used by the calling function (e.g.
+\code{base_family} in \code{ro_gg_theme()}) instead of this function's own
+\code{target_font_family} parameter. Only relevant for programmatic callers
+that want to override the automatically detected argument name.}
 }
 \value{
 The resolved font family name: \code{target_font_family} itself if
