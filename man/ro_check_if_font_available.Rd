@@ -4,22 +4,40 @@
 \alias{ro_check_if_font_available}
 \title{Check whether a font family is available on the system}
 \usage{
-ro_check_if_font_available(base_family)
+ro_check_if_font_available(
+  target_font_family,
+  arg = caller_arg(target_font_family),
+  call = caller_env()
+)
 }
 \arguments{
-\item{base_family}{Character. Font family name to check.}
+\item{target_font_family}{Character. Font family name to check. No
+default: this is a validation function, so a sensible default (e.g.
+\code{"RijksoverheidSansWebText"}) belongs in the calling plotting functions
+(e.g. \code{ro_gg_theme()}, \code{ro_ply_theme()}), not here.}
+
+\item{arg, call}{Passed on to \code{\link[rlang:abort]{rlang::abort()}}/\code{\link[cli:cli_abort]{cli::cli_abort()}} so that
+messages cite the argument name used by the calling function (e.g.
+\code{base_family} in \code{ro_gg_theme()}) instead of this function's own
+\code{target_font_family} parameter. Only relevant for programmatic callers
+that want to override the automatically detected argument name.}
 }
 \value{
-The resolved font family name (invisibly falls back to \code{"Verdana"}
-for the RO font; aborts for any other unavailable font).
+The resolved font family name: \code{target_font_family} itself if
+installed; otherwise, for the RO font, the first available font among
+\code{"Verdana"} and \code{"Arial"}, or (if neither is installed) the first font
+found on the system. Aborts for any other unavailable font.
 }
 \description{
 \ifelse{html}{\figure{group-DT.svg}{options: alt='[DT]'}}{\strong{[DT]}}\ifelse{html}{\figure{group-echarts4r.svg}{options: alt='[echarts4r]'}}{\strong{[echarts4r]}}\ifelse{html}{\figure{group-ggplot2.svg}{options: alt='[ggplot2]'}}{\strong{[ggplot2]}}\ifelse{html}{\figure{group-gt.svg}{options: alt='[gt]'}}{\strong{[gt]}}\ifelse{html}{\figure{group-plotly.svg}{options: alt='[plotly]'}}{\strong{[plotly]}}\cr\cr
-Used by ro_gg_theme and ro_e_theme to resolve the font family
-before building a chart. When the RijksoverheidSansWebText font is
-requested but not installed, the function informs the user and silently
-falls back to Verdana. When any other font is requested but not installed,
-the function aborts with an actionable error message.
+Used by ro_gg_theme and ro_e_theme to resolve the font family before
+building a chart. When the RijksoverheidSansWebText font is requested but
+not installed, the function tries \code{"Verdana"}, then \code{"Arial"}, and only
+uses one that is actually installed. If neither is available either (for
+example on Linux/CI images that ship none of them), the function informs
+the user and falls back to the first font it can find on the system. When
+any other font is requested but not installed, the function aborts with
+an actionable error message.
 }
 \seealso{
 Other ggplot2:
