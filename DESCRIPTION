@@ -6,7 +6,7 @@ Description: Provides shared utilities for the ROvis suite, including Rijksoverh
     color palettes, palette validation, and font-availability checks, so that themes
     across the ROvis packages stay consistent with official Rijksoverheid design
     guidelines.
-License: Apache License (>= 2)
+License: EUPL (>= 1.2)
 Depends:
     R (>= 4.5.0)
 Imports: 
