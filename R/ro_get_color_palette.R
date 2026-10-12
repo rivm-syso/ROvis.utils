@@ -19,7 +19,12 @@
 #' @examples
 #' ROvis.utils::ro_get_color_palette("categorical")
 ro_get_color_palette <- function(palette_name) {
-  palette_list <- list(
+  ro_init_config() # this should probably be moved to a zzz.R file
+  palette_list
+
+
+
+  <- list(
     full = c(
       "lintblauw",
       "paars",

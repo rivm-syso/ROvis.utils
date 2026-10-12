@@ -93,6 +93,9 @@ tint_colors <- function(colors,
   # when forcing correct rounding on frac 0.75, it might differ again in frac 0.4.
   # Leaving this for now due to it not being visible to the human eye.
 
+  # TODO: Add higher than 100% tint:
+  # If fraction is above 100, use tint color black instead and invert tint switch:
+  # e.g. 110, tint color black, (don't invert tint fraction like we do now)
 
   # If colors have names, drop any that look like tint variants
   if (!is.null(names(colors))) {
