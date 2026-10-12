@@ -16,7 +16,9 @@
 ^Rlib/*
 Rlib$
 Rlib
+.Rhistory
 ^Rlib/
 ^\Rlib/
 ^\.positai$
 ^\.claude$
+.Rproj.user

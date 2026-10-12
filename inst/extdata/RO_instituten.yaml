@@ -1,0 +1,60 @@
+# This yaml file contains all settings (colors for now) for generating a figure with institute dependent settings.
+
+# How to use:
+# Use `define_setter_function_here` to set a specific institute. This function will automatically check the
+# list of specified institutes.
+# Institute not listed? Add your institute by adding your settings to this file trough a pull request, or use
+# a local config file instead.
+
+default:
+  colors:
+    base_colors:
+      lintblauw: "#154273"
+      paars: "#42145f"
+      paars_tint90: "#552c6f"
+      violet: "#a90061"
+      robijnrood: "#ca005d"
+      roze: "#f092cd"
+      roze_tint110: "#d883b9"
+      rood: "#d52b1e"
+      oranje: "#e17000"
+      donkergeel: "#ffb612"
+      geel: "#f9e11e"
+      donkerbruin: "#673327"
+      bruin: "#94710a"
+      donkergroen: "#275937"
+      groen: "#39870c"
+      mosgroen: "#777b00"
+      mintgroen: "#76d2b6"
+      mintgroen_tint110: "#6abda4"
+      donkerblauw: "#01689b"
+      hemelblauw: "#007bc7"
+      lichtblauw: "#8fcae7"
+      lichtblauw_tint110: "#81b6d0"
+    greys: # NOTE: Are these even used right now? Do we keep it? Could be standard, so be put hardcoded in ro_colors instead?
+      grijs_1: "#f3f3f3"
+      grijs_2: "#e6e6e6"
+      grijs_3: "#cccccc"
+      grijs_4: "#b4b4b4"
+      grijs_5: "#999999"
+      grijs_6: "#696969"
+      grijs_7: "#535353"
+      grijs_8: "#3c3c3c"
+
+
+# Fonts can be added later!
+  # fonts:
+    # family: ROwebtextonline.
+    # size: 12
+    # style: italic
+# TODO: this should also be added later, but might have some caveats:
+# the formatting or naming convention might differ between e.g. ggplot and echarts with e.g. gridlines
+# https://ggplot2.tidyverse.org/reference/theme.html#ref-examples
+# and
+# https://stackoverflow.com/q/72305679
+  # theme:
+  #   name: themerivm
+  #   options:
+  #     background-color: white
+  #     panel.grid.major: element_blank()
+
