@@ -1,133 +1,127 @@
-# fmt: skip file
-#' Return hex code of RIVM color
+#' Return hex code of RIVM colour names
 #'
-#' @description
-#' `r ro_group_badge(c('DT', 'echarts4r', 'ggplot2', 'gt', 'plotly'))`
-#' Returns hex code(s) of color_name. All 18 RIVM colors and their
-#' lighter shades can be accessed with this function. The names of
-#' RIVM colors are listed at the  rijkshuisstijl website, or, can be viewed by
-#' running another function, \link{ro_show_colors}.
+#' Accepts base colour names such as `"hemelblauw"` and tint names such as
+#' `"hemelblauw_tint75"`. By default, base colours are read from the package
+#' configuration. You can optionally supply `base_colors` to override them,
+#' which is useful for testing.
 #'
-#' To access a vector of hex color codes of the categorical palette, use the ROvis
+#' @param color_name Character vector of colour names.
+#' @param base_colors Optional named character vector of base colours. If `NULL`,
+#'   colours are read from the package configuration.
 #'
-#' function \link{ro_color_categorical}.
-#'
-#' @param color_name Character or vector of characters. Default="hemelblauw".
-#' Can be one of:
-#' * The name of an RIVM color, e.g. "robijnrood". All colors come at different
-#' shades: 'tint15', 'tint30', 'tint45', 'tint60', or 'tint75'. A color shade can
-#' be accessed by combining the color name with the suffix "_tintXX". The seven
-#' grey tints are available as 'grijs_1' (lightest) to 'grijs_7' (darkest).
-#' * A character vector of RIVM color names. Example: c("hemelblauw", "donkergeel")
-#'
-#' @examples
-#' ro_color()
-#' ro_color("robijnrood")
-#' ro_color("donkergeel_tint75")
-#' ro_color("grijs_3")
-#' ro_color(c("lintblauw", "robijnrood", "mintgroen_tint30"))
-#' @family ggplot2
-#' @family ggplotly
-#' @family plotly
-#' @family echarts4r
-#' @return returns the (array of) hex color code(s)
+#' @return A named character vector of hex colour codes.
 #' @export
-ro_color <- function(color_name = "hemelblauw") {
-  ro_init_config()
-  tint_list <- c(0.75, 0.6, 0.45, 0.3, 0.15)
+ro_color <- function(color_name = "hemelblauw", base_colors = NULL) {
+  # If no manual overwrite colors have been given, use the config instead.
+  if (is.null(base_colors)) {
+    base_colors <- .ro_env$base_colors
+  }
 
-  base_colors <- institute_config$colors$base_colors
-
-  all_tints <- unlist(
-    lapply(tint_list, function(tf) {
-      tint_colors(base_colors, tint = tf)
-    })
+  pattern <- "^(.+)_tint([0-9]+)$"
+  base_name <- ifelse(
+    grepl(pattern, color_name),
+    sub(pattern, "\\1", color_name),
+    color_name
   )
-
-  color_list <- c(base_colors, all_tints)
 
   tryCatch(
     {
       call_loc <- current_env()
-      for (color in color_name) {
-        arg_match(color, names(color_list))
+      for (color in base_name) {
+        arg_match(color, names(base_colors))
       }
     },
     error = function(x) {
-      # use the "did you mean 'x' error info message from arg_match"
       cli_abort(
         c(
-          "!" = "{.arg color_name} must be one of,
-      or a list of, {length(color_list)} options.",
-          x$body, # the info message, if present
-          i = "Run {.run ro_show_colors()} to visualise the colors for
-      each palette ('full', 'categorical', 'gender_con', 'gender_unc', or 'greys')."
+          "!" = "{.arg color_name} must be one of, or a list of,
+          {length(base_colors)} base colour options,
+          optionally followed by a `_tintXX` suffix.",
+          x$body,
+          i = "Run {.run ro_show_colors()} to visualise the colors for each palette
+          ('full', 'categorical', 'gender_con', 'gender_unc', or 'greys')."
         ),
         call = call_loc
       )
     }
   )
 
-
-  # return hex color code
-  unlist(color_list[color_name], use.names = FALSE)
+  tint_from_names(color_name, base_colors = base_colors)
 }
 
-
-#' Tint colors (helper)
+#' Resolve colour names to hex codes
 #'
-#' @param colors named or unnamed character vector of hex colors
-#' @param tint_color color to "tint" to, default white.
-#' @param tint fraction of percentage of tint that should be added
+#' @param palette_names Character vector of colour names, with or without a
+#'   `_tint<number>` suffix.
+#' @param base_colors Optional named character vector of base colours. If `NULL`,
+#'   colours are read from the package configuration.
 #'
-#' @returns list of tintes colors.
-tint_colors <- function(colors,
-                        tint_color = "#FFFFFF",
-                        tint = 0.8) {
-  # NOTE: chat geeft terrecht aan dat wij onze tintnummers verkeerd noemen.
-  # tint75 , is eigenlijk 75% richting de tint, dus 75% tintkleur (wit) en 25% orgineel
-  # Wij doen het andersom: tint75 is 75% orginele kleur & 25% tintkleur
-  # TODO: dit bespreken / nakijken
+#' @return A named character vector of hex colours.
+tint_from_names <- function(palette_names, base_colors) {
+  pattern <- "^(.+)_tint([0-9]+)$"
+  is_tint <- grepl(pattern, palette_names)
 
-  # NOTE: tints might defiate 1 point in each color bracket due to rounding issues
-  # when forcing correct rounding on frac 0.75, it might differ again in frac 0.4.
-  # Leaving this for now due to it not being visible to the human eye.
+  base_names <- ifelse(
+    is_tint,
+    sub(pattern, "\\1", palette_names),
+    palette_names
+  )
+  tint_values <- ifelse(
+    is_tint,
+    as.numeric(sub(pattern, "\\2", palette_names)) / 100,
+    1
+  )
 
-  # TODO: Add higher than 100% tint:
-  # If fraction is above 100, use tint color black instead and invert tint switch:
-  # e.g. 110, tint color black, (don't invert tint fraction like we do now)
-
-  # If colors have names, drop any that look like tint variants
-  if (!is.null(names(colors))) {
-    is_tint <- grepl("_tint[0-9]+$", names(colors))
-    colors  <- colors[!is_tint]
+  unknown <- setdiff(unique(base_names), names(base_colors))
+  if (length(unknown) > 0) {
+    cli::cli_abort(c(
+      "!" = "Unknown colour name(s): {unknown}.",
+      "i" = "Run {.run ro_show_colors()} to view available colours."
+    ))
   }
 
-  if (length(colors) == 0) return(colors)
+  hex_codes <- vapply(
+    seq_along(palette_names),
+    function(i) {
+      if (!is_tint[i]) {
+        base_colors[[base_names[i]]]
+      } else {
+        tint_color(base_colors[[base_names[i]]], tint_values[i])
+      }
+    },
+    character(1)
+  )
 
-  base_rgb <- col2rgb(colors)             # 3 x N
-  tint_rgb <- col2rgb(tint_color)         # 3 x 1
+  names(hex_codes) <- palette_names
+  hex_codes
+}
 
-  tint_rgb_rep <- matrix(tint_rgb, nrow = 3, ncol = ncol(base_rgb))
-
-  # Interne fractie voor de kleurberekening:
-  mix_fraction <- 1 - tint
-
-  # Mix: (1 - mix_fraction)*base + mix_fraction*tint_color
-  mixed_rgb <- (1 - mix_fraction) * base_rgb + mix_fraction * tint_rgb_rep
-
-  mixed_hex <- apply(mixed_rgb, 2, function(x) {
-    rgb(x[1]/255, x[2]/255, x[3]/255)
-  })
-
-  tint_pct <- round(tint * 100)          # 0.8 → 80
-  suffix   <- paste0("_tint", tint_pct)
-
-  if (!is.null(names(colors))) {
-    names(mixed_hex) <- paste0(names(colors), suffix)
-  } else {
-    names(mixed_hex) <- paste0(colors, suffix)
+#' Tint a single colour lighter or darker
+#'
+#' @param color A single colour value understood by [grDevices::col2rgb()].
+#' @param tint A single number between 0 and 2.
+#'
+#' @return A single hex colour value.
+tint_color <- function(color, tint) {
+  if (length(color) != 1 || is.na(color)) {
+    cli::cli_abort("`color` must be a single valid colour value.")
   }
 
-  mixed_hex
+  if (
+    !is.numeric(tint) ||
+      length(tint) != 1 ||
+      is.na(tint) ||
+      tint < 0 ||
+      tint > 2
+  ) {
+    cli::cli_abort("`tint` must be a single number between 0 and 2.")
+  }
+
+  rgb_in <- grDevices::col2rgb(color)[, 1]
+  target <- if (tint < 1) 255 else 0
+  amount <- abs(tint - 1)
+
+  mixed <- (1 - amount) * rgb_in + amount * target
+
+  grDevices::rgb(mixed[1], mixed[2], mixed[3], maxColorValue = 255)
 }

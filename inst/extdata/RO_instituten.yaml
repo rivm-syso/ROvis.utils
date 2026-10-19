@@ -9,7 +9,7 @@
 
 # TODO: not sure if palletes should be its own branch or under colors.
 
-default:
+RIVM:
   colors:
     base_colors:
       lintblauw: "#154273"
