@@ -39,7 +39,9 @@ First point of contact for questions: SPIN team (spin@rivm.nl)
 *If you have ideas for releases in the future, it is a good idea to list them in the README.*
 
 ## Contributing
-See [CONTRIBUTING.md](.github/CONTRIBUTING.md) for guidelines on how to contribute, and [CONTRIBUTORS.md](CONTRIBUTORS.md) for the list of contributors.
+We welcome contributions! Before you start, **please read [CONTRIBUTING.md](.github/CONTRIBUTING.md)**.
+It explains how to open an issue, our git etiquette (branches, commits, pull requests and reviews)
+and our code standards. See [CONTRIBUTORS.md](CONTRIBUTORS.md) for the list of contributors.
 
 ## Instructions for developers 
 
