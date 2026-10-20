@@ -2,24 +2,27 @@
 % Please edit documentation in R/ro_color_palette.R
 \name{ro_color_palette}
 \alias{ro_color_palette}
-\title{Return named list with hexcodes RIVM palette}
+\title{Return list with hexcodes palette}
 \usage{
 ro_color_palette(palette_name)
 }
 \arguments{
 \item{palette_name}{one of:
 \itemize{
-\item "full": all 18 RIVM colors (full color, 100\% tint)
+\item "full": full color palette (full color)
 \item "categorical": best palette for visualizing categories (no variation in tint, good contrast differences)
 \item "gender_con": gender conventional
 \item "gender_unc": gender unconventional
-\item "greys": all 7 grey tints
+\item "greys": all grey tints
 }}
 }
 \value{
 named vector with hex color codes
 }
 \description{
+colors are defined in a yaml in inst/
+}
+\details{
 \ifelse{html}{\figure{group-echarts4r.svg}{options: alt='[echarts4r]'}}{\strong{[echarts4r]}}\ifelse{html}{\figure{group-ggplot2.svg}{options: alt='[ggplot2]'}}{\strong{[ggplot2]}}\ifelse{html}{\figure{group-plotly.svg}{options: alt='[plotly]'}}{\strong{[plotly]}}\cr\cr
 }
 \section{Dependencies}{
