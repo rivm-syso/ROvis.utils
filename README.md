@@ -13,11 +13,23 @@ ROvis.utils is an R package that provides a comprehensive suite of utilities for
 
 ## Installation
 
+Install the latest release from [R-universe](https://rivm-syso.r-universe.dev):
+
 ```r
-# Install from GitHub
+install.packages(
+  "ROvis.utils",
+  repos = c("https://rivm-syso.r-universe.dev", "https://cloud.r-project.org")
+)
+```
+
+Install the development version from GitHub:
+
+```r
 # install.packages("pak")
 pak::pak("rivm-syso/ROvis.utils")
 ```
+
+A version number ending in `.9000` is a development version.
 
 ## Usage
 
