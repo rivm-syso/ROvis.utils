@@ -7,6 +7,8 @@ Description: Provides shared utilities for the ROvis suite, including Rijksoverh
     across the ROvis packages stay consistent with official Rijksoverheid design
     guidelines.
 License: EUPL (>= 1.2)
+URL: https://rivm-syso.github.io/ROvis.utils/, https://github.com/rivm-syso/ROvis.utils
+BugReports: https://github.com/rivm-syso/ROvis.utils/issues
 Depends:
     R (>= 4.5.0)
 Imports: 
