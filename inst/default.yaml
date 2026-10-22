@@ -1,0 +1,36 @@
+# color palette
+palette:
+  - "#e41a1c"
+  - "#377eb8"
+  - "#4daf4a"
+  - "#899d0c"
+  - "#984ea3"
+  - "#ff7f00"
+  - "#ffff33"
+  - "#a65628"
+  - "#f781bf"
+
+categorical:
+  - "#984ea3"
+  - "#ff7f00"
+  - "#ffff33"
+
+gender_con:
+  - "#e41a1c"
+  - "#377eb8"
+  - "#4daf4a"
+
+gender_unc:
+  - "#899d0c"
+  - "#984ea3"
+  - "#ff7f00"
+
+greys:
+  - "#f3f3f3"
+  - "#e6e6e6"
+  - "#cccccc"
+  - "#b4b4b4"
+  - "#999999"
+  - "#696969"
+  - "#535353"
+  - "#3c3c3c"

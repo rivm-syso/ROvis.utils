@@ -179,9 +179,9 @@ ro_gg_create_palette <- function(df, palette_name, palette) {
     aes(
       x = 1,
       y = .data$number,
-      fill = .data$name,
-      label = .data$name,
-      text = str_c("<b> Color number ", .data$number, ": ", .data$name, " (", .data$hex, ")</b>")
+      fill = .data$hex,
+      label = .data$hex,
+      text = str_c("<b> Color number ", .data$number, ": ", .data$hex, " (", .data$hex, ")</b>")
     )
   ) +
     geom_tile() +
