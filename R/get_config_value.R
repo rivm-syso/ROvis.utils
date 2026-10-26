@@ -14,7 +14,7 @@ get_config_value <- function() {
 
   opt_val <- getOption("rovis.style")
   env_val <- Sys.getenv("ROVIS_STYLE")
-  style <- "default"
+  style <- "ro"
 
 
   # 1. Check environment

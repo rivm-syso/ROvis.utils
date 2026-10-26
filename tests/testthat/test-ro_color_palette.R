@@ -12,18 +12,18 @@ test_that("ro_color_palette only accepts accepts the right inputs", {
 })
 
 ### no color names anymore
-# test_that("ro_color_palette returns correct output", {
-#   expect_identical(
-#     ro_color_palette("categorical"),
-#     c(
-#       hemelblauw = "#007bc7",
-#       donkergeel = "#ffb612",
-#       robijnrood = "#ca005d",
-#       paars_tint90 = "#552c6f",
-#       mintgroen_tint110 = "#6abda4",
-#       oranje = "#e17000",
-#       groen = "#39870c",
-#       donkerbruin = "#673327"
-#     )
-#   )
-# })
+test_that("ro_color_palette returns correct output", {
+  expect_identical(
+    ro_color_palette("categorical"),
+    c(
+      hemelblauw = "#007bc7",
+      donkergeel = "#ffb612",
+      robijnrood = "#ca005d",
+      paars_tint90 = "#552c6f",
+      mintgroen_tint110 = "#6abda4",
+      oranje = "#e17000",
+      groen = "#39870c",
+      donkerbruin = "#673327"
+    )
+  )
+})

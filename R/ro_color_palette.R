@@ -42,6 +42,6 @@ ro_color_palette <- function(palette_name) {
   )
   palette_name <- arg_match(palette_name, names(palette_list), error_call = caller_env())
 
-  return(palette_list[[palette_name]])
+  return(palette_list[[palette_name]] |> unlist())
 }
 

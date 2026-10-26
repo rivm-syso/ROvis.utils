@@ -9,4 +9,4 @@
 library(testthat)
 library(ROvis.utils)
 
-# test_check("ROvis.utils")
+test_check("ROvis.utils")
