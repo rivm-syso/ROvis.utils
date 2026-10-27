@@ -11,6 +11,7 @@ test_that("ro_color_palette only accepts accepts the right inputs", {
   )
 })
 
+### no color names anymore
 test_that("ro_color_palette returns correct output", {
   expect_identical(
     ro_color_palette("categorical"),
