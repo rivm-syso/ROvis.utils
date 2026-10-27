@@ -8,6 +8,38 @@
 
 
 # TODO: not sure if palletes should be its own branch or under colors.
+# Rijksoverheid lijkt geen palletten te hebben, alleen dat contrast regels.
+# Voor nu een temp toegevoegd.
+DEFAULT:
+  colors:
+    base_colors:
+      lintblauw: "#154273"
+      paars: "#42145f"
+      violet: "#a90061"
+      robijnrood: "#ca005d"
+      roze: "#f092cd"
+      rood: "#d52b1e"
+      oranje: "#e17000"
+      donkergeel: "#ffb612"
+      geel: "#f9e11e"
+      donkerbruin: "#673327"
+      bruin: "#94710a"
+      donkergroen: "#275937"
+      groen: "#39870c"
+      mosgroen: "#777b00"
+      mintgroen: "#76d2b6"
+      donkerblauw: "#01689b"
+      hemelblauw: "#007bc7"
+      lichtblauw: "#8fcae7"
+      coolgrey: "#0F172A"
+    greys:
+      coolgrey: "#0F172A"
+    palettes:
+      tmp:
+        - lintblauw
+        - paars
+        - violet
+
 
 RIVM:
   colors:
@@ -43,7 +75,7 @@ RIVM:
       grijs_6: "#696969"
       grijs_7: "#535353"
       grijs_8: "#3c3c3c"
-    pallettes:
+    palettes:
       full:
         - lintblauw
         - paars

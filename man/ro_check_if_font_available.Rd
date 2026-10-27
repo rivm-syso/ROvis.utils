@@ -24,7 +24,6 @@ the function aborts with an actionable error message.
 \seealso{
 Other ggplot2:
 \code{\link[=get_color_palette]{get_color_palette()}},
-\code{\link[=ro_color]{ro_color()}},
 \code{\link[=ro_color_categorical]{ro_color_categorical()}},
 \code{\link[=ro_color_palette]{ro_color_palette()}},
 \code{\link[=ro_color_seq]{ro_color_seq()}},
@@ -36,7 +35,6 @@ Other ggplot2:
 \code{\link[=ro_show_colors_get_df]{ro_show_colors_get_df()}}
 
 Other ggplotly:
-\code{\link[=ro_color]{ro_color()}},
 \code{\link[=ro_color_categorical]{ro_color_categorical()}},
 \code{\link[=ro_color_palette]{ro_color_palette()}},
 \code{\link[=ro_color_seq]{ro_color_seq()}},
@@ -44,7 +42,6 @@ Other ggplotly:
 \code{\link[=ro_get_color_palette]{ro_get_color_palette()}}
 
 Other plotly:
-\code{\link[=ro_color]{ro_color()}},
 \code{\link[=ro_color_categorical]{ro_color_categorical()}},
 \code{\link[=ro_color_palette]{ro_color_palette()}},
 \code{\link[=ro_color_seq]{ro_color_seq()}},
@@ -52,7 +49,6 @@ Other plotly:
 \code{\link[=ro_get_color_palette]{ro_get_color_palette()}}
 
 Other echarts4r:
-\code{\link[=ro_color]{ro_color()}},
 \code{\link[=ro_color_categorical]{ro_color_categorical()}},
 \code{\link[=ro_color_seq]{ro_color_seq()}},
 \code{\link[=ro_color_seq_named]{ro_color_seq_named()}}

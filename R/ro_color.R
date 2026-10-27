@@ -66,10 +66,12 @@ tint_from_names <- function(palette_names, base_colors) {
     sub(pattern, "\\1", palette_names),
     palette_names
   )
-  tint_values <- ifelse(
-    is_tint,
-    as.numeric(sub(pattern, "\\2", palette_names)) / 100,
-    1
+  tint_values <- suppressWarnings(
+    ifelse(
+      is_tint,
+      as.numeric(sub(pattern, "\\2", palette_names)) / 100,
+      1
+    )
   )
 
   unknown <- setdiff(unique(base_names), names(base_colors))
