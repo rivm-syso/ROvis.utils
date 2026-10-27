@@ -25,9 +25,9 @@ ro_color_palette <- function(palette_name) {
   style <- get_config_value()
 
   # CRUCIAL: Use system.file() without the 'inst/' prefix
-  yaml_path <- system.file(paste0(style,".yaml"), package = "ROvis.utils")
+  yaml_path <- system.file(file.path("extdata", paste0(style,".yaml")), package = "ROvis.utils")
   if (yaml_path == "") {
-    stop("Configuration file 'config.yml' not found in the package resources.")
+    stop(paste0("Configuration file '", style,".yaml' not found in the package resources."))
   }
 
   # load style from yaml
