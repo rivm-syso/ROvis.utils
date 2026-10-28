@@ -9,6 +9,7 @@ export(ro_color_seq_named)
 export(ro_get_color_palette)
 export(ro_get_config_env)
 export(ro_group_badge)
+export(ro_init_config)
 export(ro_show_colors)
 import(rlang)
 importFrom(cli,

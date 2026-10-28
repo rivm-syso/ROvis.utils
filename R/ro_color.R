@@ -125,5 +125,5 @@ tint_color <- function(color, tint) {
 
   mixed <- (1 - amount) * rgb_in + amount * target
 
-  grDevices::rgb(mixed[1], mixed[2], mixed[3], maxColorValue = 255)
+  tolower(grDevices::rgb(mixed[1], mixed[2], mixed[3], maxColorValue = 255))
 }

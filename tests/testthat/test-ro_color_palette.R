@@ -18,8 +18,8 @@ test_that("ro_color_palette returns correct output", {
       hemelblauw = "#007bc7",
       donkergeel = "#ffb612",
       robijnrood = "#ca005d",
-      paars_tint90 = "#552c6f",
-      mintgroen_tint110 = "#6abda4",
+      paars_tint90 = "#542b6f",
+      mintgroen_tint110 = "#6abca3",
       oranje = "#e17000",
       groen = "#39870c",
       donkerbruin = "#673327"

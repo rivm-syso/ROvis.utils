@@ -2,9 +2,7 @@
 % Please edit documentation in R/ro_init_config.R
 \name{ro_init_config}
 \alias{ro_init_config}
-\title{Initialize and read the config that holds all huisstijl colors
-TODO: Add logic for env file determinations.
-TODO: Add logic for fallback to custom location?}
+\title{Initialize and read ROvis huisstijl (brand) color configuration}
 \usage{
 ro_init_config(
   institute = "Default",
@@ -13,13 +11,50 @@ ro_init_config(
 )
 }
 \arguments{
-\item{FALSE}{description}
+\item{institute}{Character string giving the institute name to use.
+Defaults to \code{"Default"}. Overridden by \code{ROVIS_STYLE} if present and
+\code{ignore_env = FALSE}.}
+
+\item{config_path}{Character string giving the path to the YAML
+configuration file. Defaults to \code{"inst/extdata/RO_instituten.yaml"}.
+Overridden by \code{ROVIS_STYLE_LOCATION} if present and \code{ignore_env = FALSE}.}
+
+\item{ignore_env}{Logical, default \code{FALSE}. If \code{TRUE}, environment
+variables are ignored and only the function arguments are used.}
 }
 \value{
-config with institute colors.
+Invisibly returns the institute-specific configuration list
+(colors, palettes, etc.), and also stores it in the package-level
+environment \code{.ro_env} as:
+\itemize{
+\item \code{.ro_env$institute_config}
+\item \code{.ro_env$base_colors}
+\item \code{.ro_env$palettes}
+}
 }
 \description{
-Initialize and read the config that holds all huisstijl colors
-TODO: Add logic for env file determinations.
-TODO: Add logic for fallback to custom location?
+Initializes the ROvis configuration by reading a YAML file containing
+institute-specific huisstijl colors. The institute and config file
+location can be overridden via environment variables, unless
+\code{ignore_env = TRUE}.
+}
+\details{
+Environment variables used:
+\itemize{
+\item \code{ROVIS_STYLE} — institute name (e.g. \code{"Default"}, \code{"RIVM"}, ...)
+\item \code{ROVIS_STYLE_LOCATION} — path to the YAML config file
+}
+}
+\examples{
+\dontrun{
+  # Default institute and default config path
+  ro_init_config()
+
+  # Explicit institute and config path
+  ro_init_config(institute = "RIVM", config_path = "path/to/config.yaml")
+
+  # Ignore environment variables and use only function arguments
+  ro_init_config(ignore_env = TRUE)
+}
+
 }
