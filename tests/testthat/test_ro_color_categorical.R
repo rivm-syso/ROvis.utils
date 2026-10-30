@@ -5,8 +5,8 @@ test_that("colors_categorical returns correct output", {
       "#007bc7",
       "#ffb612",
       "#ca005d",
-      "#542b6f",
-      "#6abca3",
+      "#552c6f",
+      "#6abda4",
       "#e17000",
       "#39870c",
       "#673327"

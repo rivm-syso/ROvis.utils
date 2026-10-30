@@ -14,7 +14,7 @@
 ro_color <- function(color_name = "hemelblauw", base_colors = NULL) {
   # If no manual overwrite colors have been given, use the config instead.
   if (is.null(base_colors)) {
-    base_colors <- .ro_env$base_colors
+    base_colors <- ro_color_palette("full")
   }
 
   pattern <- "^(.+)_tint([0-9]+)$"

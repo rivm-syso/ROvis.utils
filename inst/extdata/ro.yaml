@@ -22,6 +22,7 @@ palette:
   hemelblauw:         "#007bc7"
   lichtblauw:         "#8fcae7"
   lichtblauw_tint110: "#81b6d0"
+  grijs_5:            "#999999"
 
 
 categorical:
