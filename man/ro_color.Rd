@@ -21,3 +21,50 @@ Accepts base colour names such as \code{"hemelblauw"} and tint names such as
 configuration. You can optionally supply \code{base_colors} to override them,
 which is useful for testing.
 }
+<<<<<<< HEAD
+=======
+\examples{
+ro_color()
+ro_color("robijnrood")
+ro_color("donkergeel_tint75")
+ro_color("grijs_3")
+ro_color(c("lintblauw", "robijnrood", "mintgroen_tint30"))
+}
+\seealso{
+Other ggplot2:
+\code{\link[=get_color_palette]{get_color_palette()}},
+\code{\link[=ro_check_if_font_available]{ro_check_if_font_available()}},
+\code{\link[=ro_color_categorical]{ro_color_categorical()}},
+\code{\link[=ro_color_palette]{ro_color_palette()}},
+\code{\link[=ro_color_seq]{ro_color_seq()}},
+\code{\link[=ro_color_seq_named]{ro_color_seq_named()}},
+\code{\link[=ro_color_validate]{ro_color_validate()}},
+\code{\link[=ro_gg_create_palette]{ro_gg_create_palette()}},
+\code{\link[=ro_show_colors]{ro_show_colors()}},
+\code{\link[=ro_show_colors_get_df]{ro_show_colors_get_df()}}
+
+Other ggplotly:
+\code{\link[=ro_check_if_font_available]{ro_check_if_font_available()}},
+\code{\link[=ro_color_categorical]{ro_color_categorical()}},
+\code{\link[=ro_color_palette]{ro_color_palette()}},
+\code{\link[=ro_color_seq]{ro_color_seq()}},
+\code{\link[=ro_color_seq_named]{ro_color_seq_named()}}
+
+Other plotly:
+\code{\link[=ro_check_if_font_available]{ro_check_if_font_available()}},
+\code{\link[=ro_color_categorical]{ro_color_categorical()}},
+\code{\link[=ro_color_palette]{ro_color_palette()}},
+\code{\link[=ro_color_seq]{ro_color_seq()}},
+\code{\link[=ro_color_seq_named]{ro_color_seq_named()}}
+
+Other echarts4r:
+\code{\link[=ro_check_if_font_available]{ro_check_if_font_available()}},
+\code{\link[=ro_color_categorical]{ro_color_categorical()}},
+\code{\link[=ro_color_seq]{ro_color_seq()}},
+\code{\link[=ro_color_seq_named]{ro_color_seq_named()}}
+}
+\concept{echarts4r}
+\concept{ggplot2}
+\concept{ggplotly}
+\concept{plotly}
+>>>>>>> rwan_env

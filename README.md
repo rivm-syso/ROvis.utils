@@ -80,4 +80,4 @@ create automatic documentation in the `man` folder
 This R package was created by the SPIN team (spin@rivm.nl).
 
 ## License
-This package is licensed under the Apache License 2.0. See [LICENSE.md](LICENSE.md) for details.
+The code can be re-used under license [EUPL v.1.2](https://eupl.eu/1.2/en/). See [LICENCE](LICENCE) for details.

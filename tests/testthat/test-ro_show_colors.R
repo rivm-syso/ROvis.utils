@@ -12,7 +12,7 @@ test_that("ro_show_colors only accepts the right inputs", {
 
 test_that("ro_show_colors returns correct output", {
   # predefined rivm palette
-  plot_predef <- ro_show_colors("gender_con")
+  plot_predef <- ro_show_colors(palette_name = "gender_con")
   expect_snapshot(
     # structure of data underlying the plot (x, y values, colors, text etc.)
     str(plot_predef$x$data)
@@ -20,8 +20,8 @@ test_that("ro_show_colors returns correct output", {
 
   # custom named palette
   plot_custom_named <- ro_show_colors(
-    "custom",
-    c(ro_color("oranje"), ro_color("groen"), ro_color("roze"))
+    palette_name = "custom"
+    , custom_colors = c(ro_color("oranje"), ro_color("groen"), ro_color("roze"))
   )
   expect_snapshot(
     str(plot_custom_named$x$data)
