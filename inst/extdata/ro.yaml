@@ -1,0 +1,56 @@
+# color palette
+palette:
+  lintblauw:          "#154273"
+  paars:              "#42145f"
+  paars_tint90:       "#552c6f"
+  violet:             "#a90061"
+  robijnrood:         "#ca005d"
+  roze:               "#f092cd"
+  roze_tint110:       "#d883b9"
+  rood:               "#d52b1e"
+  oranje:             "#e17000"
+  donkergeel:         "#ffb612"
+  geel:               "#f9e11e"
+  donkerbruin:        "#673327"
+  bruin:              "#94710a"
+  donkergroen:        "#275937"
+  groen:              "#39870c"
+  mosgroen:           "#777b00"
+  mintgroen:          "#76d2b6"
+  mintgroen_tint110:  "#6abda4"
+  donkerblauw:        "#01689b"
+  hemelblauw:         "#007bc7"
+  lichtblauw:         "#8fcae7"
+  lichtblauw_tint110: "#81b6d0"
+  grijs_5:            "#999999"
+
+
+categorical:
+  hemelblauw:         "#007bc7"
+  donkergeel:         "#ffb612"
+  robijnrood:         "#ca005d"
+  paars_tint90:       "#552c6f"
+  mintgroen_tint110:  "#6abda4"
+  oranje:             "#e17000"
+  groen:              "#39870c"
+  donkerbruin:        "#673327"
+
+gender_con:
+  hemelblauw:         "#007bc7"
+  robijnrood:         "#ca005d"
+  paars_tint90:       "#552c6f"
+
+gender_unc:
+  paars_tint90:       "#552c6f"
+  donkergeel:         "#ffb612"
+  mintgroen_tint110:  "#6abda4"
+
+greys:
+  grijs_1:            "#f3f3f3"
+  grijs_2:            "#e6e6e6"
+  grijs_3:            "#cccccc"
+  grijs_4:            "#b4b4b4"
+  grijs_5:            "#999999"
+  grijs_6:            "#696969"
+  grijs_7:            "#535353"
+  grijs_8:            "#3c3c3c"

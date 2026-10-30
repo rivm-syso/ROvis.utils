@@ -51,35 +51,28 @@ ro_color_seq_named(
 \seealso{
 Other ggplotly:
 \code{\link[=ro_check_if_font_available]{ro_check_if_font_available()}},
-\code{\link[=ro_color]{ro_color()}},
 \code{\link[=ro_color_categorical]{ro_color_categorical()}},
 \code{\link[=ro_color_palette]{ro_color_palette()}},
-\code{\link[=ro_color_seq]{ro_color_seq()}},
-\code{\link[=ro_get_color_palette]{ro_get_color_palette()}}
+\code{\link[=ro_color_seq]{ro_color_seq()}}
 
 Other plotly:
 \code{\link[=ro_check_if_font_available]{ro_check_if_font_available()}},
-\code{\link[=ro_color]{ro_color()}},
 \code{\link[=ro_color_categorical]{ro_color_categorical()}},
 \code{\link[=ro_color_palette]{ro_color_palette()}},
-\code{\link[=ro_color_seq]{ro_color_seq()}},
-\code{\link[=ro_get_color_palette]{ro_get_color_palette()}}
+\code{\link[=ro_color_seq]{ro_color_seq()}}
 
 Other echarts4r:
 \code{\link[=ro_check_if_font_available]{ro_check_if_font_available()}},
-\code{\link[=ro_color]{ro_color()}},
 \code{\link[=ro_color_categorical]{ro_color_categorical()}},
 \code{\link[=ro_color_seq]{ro_color_seq()}}
 
 Other ggplot2:
 \code{\link[=get_color_palette]{get_color_palette()}},
 \code{\link[=ro_check_if_font_available]{ro_check_if_font_available()}},
-\code{\link[=ro_color]{ro_color()}},
 \code{\link[=ro_color_categorical]{ro_color_categorical()}},
 \code{\link[=ro_color_palette]{ro_color_palette()}},
 \code{\link[=ro_color_seq]{ro_color_seq()}},
 \code{\link[=ro_color_validate]{ro_color_validate()}},
-\code{\link[=ro_get_color_palette]{ro_get_color_palette()}},
 \code{\link[=ro_gg_create_palette]{ro_gg_create_palette()}},
 \code{\link[=ro_show_colors]{ro_show_colors()}},
 \code{\link[=ro_show_colors_get_df]{ro_show_colors_get_df()}}
