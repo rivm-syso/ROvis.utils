@@ -22,3 +22,4 @@ Rlib
 ^\.positai$
 ^\.claude$
 .Rproj.user
+local_style.yaml
