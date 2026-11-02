@@ -237,7 +237,7 @@
        $ :List of 15
         ..$ x          : num [1:5] 0.5 0.5 1.5 1.5 0.5
         ..$ y          : num [1:5] 2.5 3.5 3.5 2.5 2.5
-        ..$ text       : chr "<b> Color number 1: 1 (#D9EBF7)</b>"
+        ..$ text       : chr "<b> Color number 1: 1 (#D8EBF6)</b>"
         ..$ type       : chr "scatter"
         ..$ mode       : chr "lines"
         ..$ line       :List of 3
@@ -245,7 +245,7 @@
         .. ..$ color: chr "transparent"
         .. ..$ dash : chr "solid"
         ..$ fill       : chr "toself"
-        ..$ fillcolor  : chr "rgba(217,235,247,1)"
+        ..$ fillcolor  : chr "rgba(216,235,246,1)"
         ..$ hoveron    : chr "fills"
         ..$ name       : chr "1"
         ..$ legendgroup: chr "1"
@@ -295,7 +295,7 @@
         ..$ x          : num 1
         ..$ y          : 'mapped_discrete' num 3
         ..$ text       : chr "1"
-        ..$ hovertext  : chr "<b> Color number 1: 1 (#D9EBF7)</b>"
+        ..$ hovertext  : chr "<b> Color number 1: 1 (#D8EBF6)</b>"
         ..$ textfont   :List of 2
         .. ..$ size : num 14.6
         .. ..$ color: chr "rgba(255,255,255,1)"
