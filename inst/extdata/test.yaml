@@ -1,0 +1,31 @@
+# color palette
+palette:
+  rood:       "#e41a1c"
+  blauw:      "#377eb8"
+  groen:      "#4daf4a"
+  pastel:     "#899d0c"
+  paars:      "#984ea3"
+  oranje:     "#ff7f00"
+  geel:       "#ffff33"
+  bruin:      "#a65628"
+  roze:       "#f781bf"
+
+categorical:
+  paars:      "#984ea3"
+  oranje:     "#ff7f00"
+  geel:       "#ffff33"
+
+gender_con:
+  rood:       "#e41a1c"
+  blauw:      "#377eb8"
+  groen:      "#4daf4a"
+
+gender_unc:
+  pastel:     "#899d0c"
+  paars:      "#984ea3"
+  oranje:     "#ff7f00"
+
+greys:
+  grijs1:     "#f3f3f3"
+  grijs2:     "#e6e6e6"
+

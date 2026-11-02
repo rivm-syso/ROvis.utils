@@ -20,3 +20,4 @@ Rlib
 ^\Rlib/
 ^\.positai$
 ^\.claude$
+.Rproj.user
