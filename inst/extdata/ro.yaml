@@ -1,3 +1,14 @@
+# Mandatory settings ----
+# Each style has the following mandatory settings:
+# - font-style
+# - palette (colornames can be chosen)
+# - NA_color (colorname can be chosen)
+
+
+#fonts
+font-family-title: RijksoverheidSansWebText, Verdana, Arial
+font-family-text: RijksoverheidSansWebText, Verdana, Arial
+
 # color palette
 palette:
   lintblauw:          "#154273"
@@ -22,8 +33,15 @@ palette:
   hemelblauw:         "#007bc7"
   lichtblauw:         "#8fcae7"
   lichtblauw_tint110: "#81b6d0"
+  grijs_5:            "#999999"
+
+# color for missing data
+NA_color:
+  grijs_5:            "#999999"
 
 
+
+# Custom settings ----
 categorical:
   hemelblauw:         "#007bc7"
   donkergeel:         "#ffb612"

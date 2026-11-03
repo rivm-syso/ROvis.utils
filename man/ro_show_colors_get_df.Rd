@@ -27,7 +27,6 @@ ROvis.utils:::ro_show_colors_get_df(c("1" = ro_color("donkerblauw"), "2" = ro_co
 Other ggplot2:
 \code{\link[=get_color_palette]{get_color_palette()}},
 \code{\link[=ro_check_if_font_available]{ro_check_if_font_available()}},
-\code{\link[=ro_color]{ro_color()}},
 \code{\link[=ro_color_categorical]{ro_color_categorical()}},
 \code{\link[=ro_color_palette]{ro_color_palette()}},
 \code{\link[=ro_color_seq]{ro_color_seq()}},
