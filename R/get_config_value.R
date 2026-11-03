@@ -62,8 +62,6 @@ get_config_value <- function() {
     print(paste0(style, " style does not exist. Default (ro) style is used."))
     style <- "ro"
     stylePath <- system.file(file.path("extdata", paste0(style,".yaml")), package = "ROvis.utils")
-  } else {
-    print(paste0(style, " style is loaded."))
   }
 
   style_list <- list(style = style, stylePath = stylePath)
