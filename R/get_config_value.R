@@ -53,10 +53,12 @@ get_config_value <- function() {
   if (style == "local" & is.null(stylePath)){
     print("No path is set for local style. Default (ro) style is used.")
     style <- "ro"
+    stylePath <- system.file(file.path("extdata", paste0(style,".yaml")), package = "ROvis.utils")
   } else if (style == "local" & !file.exists(stylePath)){
     # non-existing -> ro
     print(paste0(stylePath, " does not exist. Default (ro) style is used."))
     style <- "ro"
+    stylePath <- system.file(file.path("extdata", paste0(style,".yaml")), package = "ROvis.utils")
   } else if (style != "local" & !file.exists(stylePath)){
     # non-existing -> ro
     print(paste0(style, " style does not exist. Default (ro) style is used."))
