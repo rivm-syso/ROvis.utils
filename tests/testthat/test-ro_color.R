@@ -5,7 +5,7 @@ test_that("ro_color only accepts existing color_name", {
   )
 
   expect_identical(
-    ro_color("donkergeel"),
+    as.character(ro_color("donkergeel")),
     "#ffb612"
   )
 })

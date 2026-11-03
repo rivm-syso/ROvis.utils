@@ -1,0 +1,21 @@
+# Each style has the following mandatory settings:
+# - font-style
+# - palette (colornames can be chosen)
+# - NA_color (colorname can be chosen)
+
+
+#fonts
+font-family-title: Roboto, arial, sans-serif
+font-family-text: Roboto, arial, sans-serif
+
+# color palette
+palette:
+  rood:       "#e41a1c"
+  blauw:      "#377eb8"
+
+# color for missing data
+NA_color:
+  green:      "green"
+
+# Custom settings ----
+
