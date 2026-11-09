@@ -29,9 +29,7 @@
 #'   `"Verdana"` and `"Arial"`, or (if neither is installed) the first font
 #'   found on the system. Aborts for any other unavailable font.
 #' @export
-ro_check_if_font_available <- function(target_font_family,
-                                       arg = caller_arg(target_font_family),
-                                       call = caller_env()) {
+ro_check_if_font_available <- function(target_font_family, arg = caller_arg(target_font_family), call = caller_env()) {
   installed_fonts <- system_fonts()$family
 
   if (target_font_family %in% installed_fonts) {
