@@ -6,12 +6,17 @@
 
 ## Citation
 
-ROvis team (2026). *ROvis.utils: Rijksoverheid Visualisatie - utils*. R
-package version 0.0.0.9000.
+Source:
+[`DESCRIPTION`](https://github.com/rivm-syso/ROvis.utils/blob/v0.1.0/DESCRIPTION)
+
+ROvis team (2026). *ROvis.utils: Utilities for Rijksoverheid-Styled Data
+Visualizations*. R package version 0.1.0,
+<https://rivm-syso.github.io/ROvis.utils/>.
 
     @Manual{,
-      title = {ROvis.utils: Rijksoverheid Visualisatie - utils},
+      title = {ROvis.utils: Utilities for Rijksoverheid-Styled Data Visualizations},
       author = {{ROvis team}},
       year = {2026},
-      note = {R package version 0.0.0.9000},
+      note = {R package version 0.1.0},
+      url = {https://rivm-syso.github.io/ROvis.utils/},
     }

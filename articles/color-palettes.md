@@ -1,11 +1,12 @@
 # Working with Color Palettes
 
-In the [Getting started with ROvis vignette](getting-started-ROvis.md)
+In the [Getting started with ROvis
+vignette](https://rivm-syso.github.io/ROvis.ggplot2/articles/getting-started-rovis.html)
 you learned how to explore colors and how to use the
-[`ro_color()`](../reference/ro_color.md) function in your ggplots. You
-also learned how to use the categorical color palette. However, ROvis
-also has functions to create color sequences to help you with
-visualizing ordinal and continuous data.
+[`ro_color()`](https://rivm-syso.github.io/ROvis.utils/reference/ro_color.md)
+function in your ggplots. You also learned how to use the categorical
+color palette. However, ROvis also has functions to create color
+sequences to help you with visualizing ordinal and continuous data.
 
 ## Loading data
 
@@ -167,8 +168,8 @@ fig_brab_geld
 ![](color-palettes_files/figure-html/fig_brab_geld_without_theme-1.png)
 
 We can apply the RIVM colors by using
-[`ro_color_seq()`](../reference/ro_color_seq.md). We will also make the
-legend items appear in three rows for readibility:
+[`ro_color_seq()`](https://rivm-syso.github.io/ROvis.utils/reference/ro_color_seq.md).
+We will also make the legend items appear in three rows for readibility:
 
 ``` r
 
@@ -185,11 +186,12 @@ fig_brab_geld +
 
 When including an explicit “Not available” category (e.g., “NA”), it can
 be helpful to use the
-[`ro_color_seq_named()`](../reference/ro_color_seq_named.md) function.
-This function works similarly to
-[`ro_color_seq()`](../reference/ro_color_seq.md), but it directly
-assigns colors to the specified category names. This allows for more
-precise control over color mapping in ordered visualizations.
+[`ro_color_seq_named()`](https://rivm-syso.github.io/ROvis.utils/reference/ro_color_seq_named.md)
+function. This function works similarly to
+[`ro_color_seq()`](https://rivm-syso.github.io/ROvis.utils/reference/ro_color_seq.md),
+but it directly assigns colors to the specified category names. This
+allows for more precise control over color mapping in ordered
+visualizations.
 
 ``` r
 

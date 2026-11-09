@@ -5,12 +5,14 @@
 Returns hex code(s) of color_name. All 18 RIVM colors and their lighter
 shades can be accessed with this function. The names of RIVM colors are
 listed at the rijkshuisstijl website, or, can be viewed by running
-another ROvis function ro_show_colors.
+another function,
+[ro_show_colors](https://rivm-syso.github.io/ROvis.utils/reference/ro_show_colors.md).
 
 To access a vector of hex color codes of the categorical palette, use
 the ROvis
 
-function ro_color_categorical.
+function
+[ro_color_categorical](https://rivm-syso.github.io/ROvis.utils/reference/ro_color_categorical.md).
 
 ## Usage
 
@@ -40,39 +42,40 @@ returns the (array of) hex color code(s)
 
 ## See also
 
-Other ggplot2: [`get_color_palette()`](get_color_palette.md),
-[`ro_check_if_font_available()`](ro_check_if_font_available.md),
-[`ro_color_categorical()`](ro_color_categorical.md),
-[`ro_color_palette()`](ro_color_palette.md),
-[`ro_color_seq()`](ro_color_seq.md),
-[`ro_color_seq_named()`](ro_color_seq_named.md),
-[`ro_color_validate()`](ro_color_validate.md),
-[`ro_get_color_palette()`](ro_get_color_palette.md),
-[`ro_gg_create_palette()`](ro_gg_create_palette.md),
-[`ro_show_colors()`](ro_show_colors.md),
-[`ro_show_colors_get_df()`](ro_show_colors_get_df.md)
+Other ggplot2:
+[`get_color_palette()`](https://rivm-syso.github.io/ROvis.utils/reference/get_color_palette.md),
+[`ro_check_if_font_available()`](https://rivm-syso.github.io/ROvis.utils/reference/ro_check_if_font_available.md),
+[`ro_color_categorical()`](https://rivm-syso.github.io/ROvis.utils/reference/ro_color_categorical.md),
+[`ro_color_palette()`](https://rivm-syso.github.io/ROvis.utils/reference/ro_color_palette.md),
+[`ro_color_seq()`](https://rivm-syso.github.io/ROvis.utils/reference/ro_color_seq.md),
+[`ro_color_seq_named()`](https://rivm-syso.github.io/ROvis.utils/reference/ro_color_seq_named.md),
+[`ro_color_validate()`](https://rivm-syso.github.io/ROvis.utils/reference/ro_color_validate.md),
+[`ro_get_color_palette()`](https://rivm-syso.github.io/ROvis.utils/reference/ro_get_color_palette.md),
+[`ro_gg_create_palette()`](https://rivm-syso.github.io/ROvis.utils/reference/ro_gg_create_palette.md),
+[`ro_show_colors()`](https://rivm-syso.github.io/ROvis.utils/reference/ro_show_colors.md),
+[`ro_show_colors_get_df()`](https://rivm-syso.github.io/ROvis.utils/reference/ro_show_colors_get_df.md)
 
 Other ggplotly:
-[`ro_check_if_font_available()`](ro_check_if_font_available.md),
-[`ro_color_categorical()`](ro_color_categorical.md),
-[`ro_color_palette()`](ro_color_palette.md),
-[`ro_color_seq()`](ro_color_seq.md),
-[`ro_color_seq_named()`](ro_color_seq_named.md),
-[`ro_get_color_palette()`](ro_get_color_palette.md)
+[`ro_check_if_font_available()`](https://rivm-syso.github.io/ROvis.utils/reference/ro_check_if_font_available.md),
+[`ro_color_categorical()`](https://rivm-syso.github.io/ROvis.utils/reference/ro_color_categorical.md),
+[`ro_color_palette()`](https://rivm-syso.github.io/ROvis.utils/reference/ro_color_palette.md),
+[`ro_color_seq()`](https://rivm-syso.github.io/ROvis.utils/reference/ro_color_seq.md),
+[`ro_color_seq_named()`](https://rivm-syso.github.io/ROvis.utils/reference/ro_color_seq_named.md),
+[`ro_get_color_palette()`](https://rivm-syso.github.io/ROvis.utils/reference/ro_get_color_palette.md)
 
 Other plotly:
-[`ro_check_if_font_available()`](ro_check_if_font_available.md),
-[`ro_color_categorical()`](ro_color_categorical.md),
-[`ro_color_palette()`](ro_color_palette.md),
-[`ro_color_seq()`](ro_color_seq.md),
-[`ro_color_seq_named()`](ro_color_seq_named.md),
-[`ro_get_color_palette()`](ro_get_color_palette.md)
+[`ro_check_if_font_available()`](https://rivm-syso.github.io/ROvis.utils/reference/ro_check_if_font_available.md),
+[`ro_color_categorical()`](https://rivm-syso.github.io/ROvis.utils/reference/ro_color_categorical.md),
+[`ro_color_palette()`](https://rivm-syso.github.io/ROvis.utils/reference/ro_color_palette.md),
+[`ro_color_seq()`](https://rivm-syso.github.io/ROvis.utils/reference/ro_color_seq.md),
+[`ro_color_seq_named()`](https://rivm-syso.github.io/ROvis.utils/reference/ro_color_seq_named.md),
+[`ro_get_color_palette()`](https://rivm-syso.github.io/ROvis.utils/reference/ro_get_color_palette.md)
 
 Other echarts4r:
-[`ro_check_if_font_available()`](ro_check_if_font_available.md),
-[`ro_color_categorical()`](ro_color_categorical.md),
-[`ro_color_seq()`](ro_color_seq.md),
-[`ro_color_seq_named()`](ro_color_seq_named.md)
+[`ro_check_if_font_available()`](https://rivm-syso.github.io/ROvis.utils/reference/ro_check_if_font_available.md),
+[`ro_color_categorical()`](https://rivm-syso.github.io/ROvis.utils/reference/ro_color_categorical.md),
+[`ro_color_seq()`](https://rivm-syso.github.io/ROvis.utils/reference/ro_color_seq.md),
+[`ro_color_seq_named()`](https://rivm-syso.github.io/ROvis.utils/reference/ro_color_seq_named.md)
 
 ## Examples
 

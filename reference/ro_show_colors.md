@@ -39,9 +39,11 @@ ro_show_colors(palette_name = "full", custom_colors = NULL)
   (#RRGGBB).
 
   It is advised to use the other ROvis color functions. To access the
-  hex color code of a specific color, use the the ROvis function
-  ro_color. To access a vector of hex color codes of the categorical
-  palette, use the ROvis function ro_color_categorical.
+  hex color code of a specific color, use the
+  [ro_color](https://rivm-syso.github.io/ROvis.utils/reference/ro_color.md)
+  function. To access a vector of hex color codes of the categorical
+  palette, use the ROvis function
+  [ro_color_categorical](https://rivm-syso.github.io/ROvis.utils/reference/ro_color_categorical.md).
 
 ## Value
 
@@ -49,21 +51,22 @@ Color palette in the Viewer pane.
 
 ## Dependencies
 
-- ro_color_palette
+- [ro_color_palette](https://rivm-syso.github.io/ROvis.utils/reference/ro_color_palette.md)
 
 ## See also
 
-Other ggplot2: [`get_color_palette()`](get_color_palette.md),
-[`ro_check_if_font_available()`](ro_check_if_font_available.md),
-[`ro_color()`](ro_color.md),
-[`ro_color_categorical()`](ro_color_categorical.md),
-[`ro_color_palette()`](ro_color_palette.md),
-[`ro_color_seq()`](ro_color_seq.md),
-[`ro_color_seq_named()`](ro_color_seq_named.md),
-[`ro_color_validate()`](ro_color_validate.md),
-[`ro_get_color_palette()`](ro_get_color_palette.md),
-[`ro_gg_create_palette()`](ro_gg_create_palette.md),
-[`ro_show_colors_get_df()`](ro_show_colors_get_df.md)
+Other ggplot2:
+[`get_color_palette()`](https://rivm-syso.github.io/ROvis.utils/reference/get_color_palette.md),
+[`ro_check_if_font_available()`](https://rivm-syso.github.io/ROvis.utils/reference/ro_check_if_font_available.md),
+[`ro_color()`](https://rivm-syso.github.io/ROvis.utils/reference/ro_color.md),
+[`ro_color_categorical()`](https://rivm-syso.github.io/ROvis.utils/reference/ro_color_categorical.md),
+[`ro_color_palette()`](https://rivm-syso.github.io/ROvis.utils/reference/ro_color_palette.md),
+[`ro_color_seq()`](https://rivm-syso.github.io/ROvis.utils/reference/ro_color_seq.md),
+[`ro_color_seq_named()`](https://rivm-syso.github.io/ROvis.utils/reference/ro_color_seq_named.md),
+[`ro_color_validate()`](https://rivm-syso.github.io/ROvis.utils/reference/ro_color_validate.md),
+[`ro_get_color_palette()`](https://rivm-syso.github.io/ROvis.utils/reference/ro_get_color_palette.md),
+[`ro_gg_create_palette()`](https://rivm-syso.github.io/ROvis.utils/reference/ro_gg_create_palette.md),
+[`ro_show_colors_get_df()`](https://rivm-syso.github.io/ROvis.utils/reference/ro_show_colors_get_df.md)
 
 ## Examples
 
