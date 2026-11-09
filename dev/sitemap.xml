@@ -1,0 +1,27 @@
+<urlset xmlns = 'http://www.sitemaps.org/schemas/sitemap/0.9'>
+<url><loc>https://rivm-syso.github.io/ROvis.utils/dev/CODE_OF_CONDUCT.html</loc></url>
+<url><loc>https://rivm-syso.github.io/ROvis.utils/dev/CONTRIBUTING.html</loc></url>
+<url><loc>https://rivm-syso.github.io/ROvis.utils/dev/CONTRIBUTORS.html</loc></url>
+<url><loc>https://rivm-syso.github.io/ROvis.utils/dev/LICENSE-text.html</loc></url>
+<url><loc>https://rivm-syso.github.io/ROvis.utils/dev/articles/color-palettes.html</loc></url>
+<url><loc>https://rivm-syso.github.io/ROvis.utils/dev/articles/index.html</loc></url>
+<url><loc>https://rivm-syso.github.io/ROvis.utils/dev/authors.html</loc></url>
+<url><loc>https://rivm-syso.github.io/ROvis.utils/dev/index.html</loc></url>
+<url><loc>https://rivm-syso.github.io/ROvis.utils/dev/news/index.html</loc></url>
+<url><loc>https://rivm-syso.github.io/ROvis.utils/dev/reference/ROvis.utils-package.html</loc></url>
+<url><loc>https://rivm-syso.github.io/ROvis.utils/dev/reference/get_color_palette.html</loc></url>
+<url><loc>https://rivm-syso.github.io/ROvis.utils/dev/reference/index.html</loc></url>
+<url><loc>https://rivm-syso.github.io/ROvis.utils/dev/reference/ro_check_if_font_available.html</loc></url>
+<url><loc>https://rivm-syso.github.io/ROvis.utils/dev/reference/ro_color.html</loc></url>
+<url><loc>https://rivm-syso.github.io/ROvis.utils/dev/reference/ro_color_categorical.html</loc></url>
+<url><loc>https://rivm-syso.github.io/ROvis.utils/dev/reference/ro_color_palette.html</loc></url>
+<url><loc>https://rivm-syso.github.io/ROvis.utils/dev/reference/ro_color_seq.html</loc></url>
+<url><loc>https://rivm-syso.github.io/ROvis.utils/dev/reference/ro_color_seq_named.html</loc></url>
+<url><loc>https://rivm-syso.github.io/ROvis.utils/dev/reference/ro_color_validate.html</loc></url>
+<url><loc>https://rivm-syso.github.io/ROvis.utils/dev/reference/ro_get_color_palette.html</loc></url>
+<url><loc>https://rivm-syso.github.io/ROvis.utils/dev/reference/ro_gg_create_palette.html</loc></url>
+<url><loc>https://rivm-syso.github.io/ROvis.utils/dev/reference/ro_group_badge.html</loc></url>
+<url><loc>https://rivm-syso.github.io/ROvis.utils/dev/reference/ro_show_colors.html</loc></url>
+<url><loc>https://rivm-syso.github.io/ROvis.utils/dev/reference/ro_show_colors_get_df.html</loc></url>
+</urlset>
+
