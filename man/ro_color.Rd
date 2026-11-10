@@ -2,22 +2,22 @@
 % Please edit documentation in R/ro_color.R
 \name{ro_color}
 \alias{ro_color}
-\title{Return hex code of RIVM colour names}
+\title{Return hex code of RIVM color names}
 \usage{
 ro_color(color_name = "hemelblauw", base_colors = NULL)
 }
 \arguments{
-\item{color_name}{Character vector of colour names.}
+\item{color_name}{Character vector of color names.}
 
-\item{base_colors}{Optional named character vector of base colours. If \code{NULL},
-colours are read from the package configuration.}
+\item{base_colors}{Optional named character vector of base colors. If \code{NULL},
+colors are read from the package configuration.}
 }
 \value{
-A named character vector of hex colour codes.
+A named character vector of hex color codes.
 }
 \description{
-Accepts base colour names such as \code{"hemelblauw"} and tint names such as
-\code{"hemelblauw_tint75"}. By default, base colours are read from the package
+Accepts base color names such as \code{"hemelblauw"} and tint names such as
+\code{"hemelblauw_tint75"}. By default, base colors are read from the package
 configuration. You can optionally supply \code{base_colors} to override them,
 which is useful for testing.
 }

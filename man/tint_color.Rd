@@ -2,18 +2,19 @@
 % Please edit documentation in R/ro_color.R
 \name{tint_color}
 \alias{tint_color}
-\title{Tint a single colour lighter or darker}
+\title{Tint a single color lighter or darker}
 \usage{
 tint_color(color, tint)
 }
 \arguments{
-\item{color}{A single colour value understood by \code{\link[grDevices:col2rgb]{grDevices::col2rgb()}}.}
+\item{color}{A single color value understood by \code{\link[grDevices:col2rgb]{grDevices::col2rgb()}}.}
 
 \item{tint}{A single number between 0 and 2.}
 }
 \value{
-A single hex colour value.
+A single hex color value.
 }
 \description{
-Tint a single colour lighter or darker
+Tint a single color lighter or darker
 }
+\keyword{internal}
