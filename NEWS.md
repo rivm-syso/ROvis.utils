@@ -2,7 +2,8 @@
 
 # ROvis.utils 0.1.0
 
-First release since `ROvis.utils` was split out of the `ROvis` monolith into its own
+- development version
+- First release since `ROvis.utils` was split out of the `ROvis` monolith into its own
 package, and the repository moved from GitLab to GitHub.
 
 ### :sparkles: Added
