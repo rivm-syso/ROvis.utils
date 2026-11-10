@@ -33,7 +33,7 @@ get_config_value <- function() {
   # Check if style exists
   if (!file.exists(system.file(file.path("extdata", paste0(style,".yaml")), package = "ROvis.utils"))){
     # non-existing -> ro
-    print(paste0(style, " style does not exist. Default (ro) style is used."))
+    cli::cli_warn("'{style}' style does not exist. Default (ro) style is used.")
     style <- "ro"
   }
   return(style)
