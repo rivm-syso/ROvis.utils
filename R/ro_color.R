@@ -12,9 +12,17 @@
 #' @return A named character vector of hex colour codes.
 #' @export
 ro_color <- function(color_name = "hemelblauw", base_colors = NULL) {
+
+  # load all colors
+  config <- ro_load_config()
+  # remove fonts
+  config$fonts <- NULL
+  # unname and unlist config
+  palette_list <- config |> unname() |> unlist()
+
   # If no manual overwrite colors have been given, use the config instead.
   if (is.null(base_colors)) {
-    base_colors <- ro_color_palette("full")
+    base_colors <- palette_list
   }
 
   pattern <- "^(.+)_tint([0-9]+)$"
@@ -46,7 +54,9 @@ ro_color <- function(color_name = "hemelblauw", base_colors = NULL) {
     }
   )
 
-  tint_from_names(color_name, base_colors = base_colors)
+  # tint_from_names(color_name, base_colors = base_colors)
+  unlist(palette_list[color_name] |> unname())
+
 }
 
 #' Resolve colour names to hex codes

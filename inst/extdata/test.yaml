@@ -5,11 +5,12 @@
 
 
 #fonts
-font-family-title: Roboto, arial, sans-serif
-font-family-text: Roboto, arial, sans-serif
+fonts:
+  font-family-title: Roboto, arial, sans-serif
+  font-family-text: Roboto, arial, sans-serif
 
 # color palette
-palette:
+full:
   rood:       "#e41a1c"
   blauw:      "#377eb8"
   groen:      "#4daf4a"

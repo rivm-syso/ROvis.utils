@@ -7,7 +7,7 @@ test_that("ro_color_palette only accepts accepts the right inputs", {
 
   expect_error(
     ro_color_palette("purple"),
-    '`palette_name` must be one of "full", "categorical", "gender_con", "gender_unc", or "greys", not "purple".'
+    '`palette_name` must be one of "full", "NA_color", "tint_75", "tint_60", "tint_45", "tint_30", "tint_15", "categorical", "gender_con", "gender_unc", or "greys", not "purple".'
   )
 })
 

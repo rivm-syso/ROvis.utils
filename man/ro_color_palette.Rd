@@ -20,7 +20,7 @@ ro_color_palette(palette_name)
 named vector with hex color codes
 }
 \description{
-colors are defined in a yaml in inst/
+colors are defined in a yaml in inst/extdata
 }
 \details{
 \ifelse{html}{\figure{group-echarts4r.svg}{options: alt='[echarts4r]'}}{\strong{[echarts4r]}}\ifelse{html}{\figure{group-ggplot2.svg}{options: alt='[ggplot2]'}}{\strong{[ggplot2]}}\ifelse{html}{\figure{group-plotly.svg}{options: alt='[plotly]'}}{\strong{[plotly]}}\cr\cr

@@ -52,6 +52,6 @@ test_that("color_seq returns the right output", {
   # returns correct output
   expect_identical(
     ro_color_seq(ro_color("robijnrood_tint15"), ro_color("robijnrood"), 5),
-    c("#F7D8E6", "#F1AEC2", "#E7839E", "#DA547D", "#CA005D")
+    c("#F7D9E7", "#F1AFC2", "#E7839F", "#DA547D", "#CA005D")
   )
 })

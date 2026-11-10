@@ -7,6 +7,7 @@ export(ro_color_palette)
 export(ro_color_seq)
 export(ro_color_seq_named)
 export(ro_group_badge)
+export(ro_load_config)
 export(ro_show_colors)
 import(rlang)
 importFrom(cli,

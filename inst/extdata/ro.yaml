@@ -6,11 +6,12 @@
 
 
 #fonts
-font-family-title: RijksoverheidSansWebText, Verdana, Arial
-font-family-text: RijksoverheidSansWebText, Verdana, Arial
+fonts:
+  font-family-title: RijksoverheidSansWebText, Verdana, Arial
+  font-family-text: RijksoverheidSansWebText, Verdana, Arial
 
 # color palette
-palette:
+full:
   lintblauw:          "#154273"
   paars:              "#42145f"
   paars_tint90:       "#552c6f"
@@ -33,15 +34,114 @@ palette:
   hemelblauw:         "#007bc7"
   lichtblauw:         "#8fcae7"
   lichtblauw_tint110: "#81b6d0"
-  grijs_5:            "#999999"
 
 # color for missing data
 NA_color:
-  grijs_5:            "#999999"
+  NA_color:           "#999999"
 
 
 
 # Custom settings ----
+tint_75:
+  lintblauw_tint75:   "#4f7196"
+  paars_tint75:       "#714f87"
+  violet_tint75:      "#be4088"
+  robijnrood_tint75:  "#d74085"
+  roze_tint75:        "#f4add9"
+  rood_tint75:        "#df6056"
+  oranje_tint75:      "#e89440"
+  donkergeel_tint75:  "#fdc84d"
+  geel_tint75:        "#fae856"
+  donkerbruin_tint75: "#8d665d"
+  bruin_tint75:       "#af9447"
+  donkergroen_tint75: "#5d8269"
+  groen_tint75:       "#6aa549"
+  mosgroen_tint75:    "#999c40"
+  mintgroen_tint75:   "#98ddc8"
+  donkerblauw_tint75: "#408eb4"
+  hemelblauw_tint75:  "#409cd5"
+  lichtblauw_tint75:  "#abd7ed"
+
+tint_60:
+  lintblauw_tint60:   "#738eab"
+  paars_tint60:       "#8d729f"
+  violet_tint60:      "#cb66a0"
+  robijnrood_tint60:  "#df669d"
+  roze_tint60:        "#f6bde1"
+  rood_tint60:        "#e67f78"
+  oranje_tint60:      "#eda966"
+  donkergeel_tint60:  "#fdd370"
+  geel_tint60:        "#fbed78"
+  donkerbruin_tint60: "#a3847d"
+  bruin_tint60:       "#bfa96c"
+  donkergroen_tint60: "#7d9b87"
+  groen_tint60:       "#88b76d"
+  mosgroen_tint60:    "#adaf66"
+  mintgroen_tint60:   "#ace4d3"
+  donkerblauw_tint60: "#66a4c3"
+  hemelblauw_tint60:  "#66afdd"
+  lichtblauw_tint60:  "#bcdff0"
+
+tint_45:
+  bruin_tint45:       "#cfbf90"
+  donkergroen_tint45: "#9db4a4"
+  groen_tint45:       "#a5c991"
+  mosgroen_tint45:    "#c1c38c"
+  mintgroen_tint45:   "#c1ebde"
+  donkerblauw_tint45: "#8cbbd2"
+  lintblauw_tint45:   "#95a9c0"
+  paars_tint45:       "#a995b7"
+  violet_tint45:      "#d88cb7"
+  robijnrood_tint45:  "#e78cb6"
+  roze_tint45:        "#f8cee8"
+  rood_tint45:        "#ec9f99"
+  oranje_tint45:      "#f1be8c"
+  donkergeel_tint45:  "#fdde94"
+  geel_tint45:        "#fcf199"
+  donkerbruin_tint45: "#baa39d"
+  hemelblauw_tint45:  "#8cc3e6"
+  lichtblauw_tint45:  "#cce7f4"
+
+tint_30:
+  lintblauw_tint30:   "#b8c6d5"
+  paars_tint30:       "#c6b8ce"
+  violet_tint30:      "#e5b2cf"
+  robijnrood_tint30:  "#efb2ce"
+  roze_tint30:        "#fbdef0"
+  rood_tint30:        "#f2bfbb"
+  oranje_tint30:      "#f6d4b2"
+  donkergeel_tint30:  "#fee9b7"
+  geel_tint30:        "#fdf6bb"
+  donkerbruin_tint30: "#d1c1bd"
+  bruin_tint30:       "#dfd4b5"
+  donkergroen_tint30: "#bdcdc2"
+  groen_tint30:       "#c3dbb5"
+  mosgroen_tint30:    "#d6d7b2"
+  mintgroen_tint30:   "#d5f1e9"
+  donkerblauw_tint30: "#b2d1e1"
+  hemelblauw_tint30:  "#b2d7ee"
+  lichtblauw_tint30:  "#ddeff8"
+
+tint_15:
+  lintblauw_tint15:   "#dce3ea"
+  paars_tint15:       "#e3dce7"
+  violet_tint15:      "#f2d9e7"
+  robijnrood_tint15:  "#f7d9e7"
+  roze_tint15:        "#fdeff8"
+  rood_tint15:        "#f9dfdd"
+  oranje_tint15:      "#fbead9"
+  donkergeel_tint15:  "#fef4db"
+  geel_tint15:        "#fefbdd"
+  donkerbruin_tint15: "#e8e0df"
+  bruin_tint15:       "#efeada"
+  donkergroen_tint15: "#dee6e1"
+  groen_tint15:       "#e1edda"
+  mosgroen_tint15:    "#ebebd9"
+  mintgroen_tint15:   "#eaf8f4"
+  donkerblauw_tint15: "#d9e8f0"
+  hemelblauw_tint15:  "#d9ebf7"
+  lichtblauw_tint15:  "#eef7fc"
+
 categorical:
   hemelblauw:         "#007bc7"
   donkergeel:         "#ffb612"

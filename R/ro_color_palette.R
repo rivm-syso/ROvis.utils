@@ -1,6 +1,6 @@
 #' Return list with hexcodes palette
 #'
-#' colors are defined in a yaml in inst/
+#' colors are defined in a yaml in inst/extdata
 #'
 #' `r ro_group_badge(c('echarts4r', 'ggplot2', 'plotly'))`
 #'
@@ -21,27 +21,19 @@
 #' @examples
 #' ROvis.utils::ro_color_palette("categorical")
 ro_color_palette <- function(palette_name) {
-  # retrieve style
-  style <- get_config_value()
 
-  # CRUCIAL: Use system.file() without the 'inst/' prefix
-  yaml_path <- system.file(file.path("extdata", paste0(style,".yaml")), package = "ROvis.utils")
-  if (yaml_path == "") {
-    stop(paste0("Configuration file '", style,".yaml' not found in the package resources."))
-  }
+  # load palette
+  config <- ro_load_config()
 
-  # load style from yaml
-  palette <- yaml::read_yaml(yaml_path)
-  #create palette_list
-  palette_list <- list(
-    full = palette$palette
-    , categorical = palette$categorical
-    , gender_con = palette$gender_con
-    , gender_unc = palette$gender_unc
-    , greys = palette$greys
-  )
-  palette_name <- arg_match(palette_name, names(palette_list), error_call = caller_env())
+  # remove fonts
+  config$fonts <- NULL
 
-  return(palette_list[[palette_name]] |> unlist())
+  # check palette name
+  palette_name <- arg_match(palette_name, names(config), error_call = caller_env())
+
+  # return named vector selected palette
+  output <- config[[palette_name]] |> unlist()
+
+  return(output)
 }
 
