@@ -67,6 +67,7 @@ ro_color <- function(color_name = "hemelblauw", base_colors = NULL) {
 #'   colours are read from the package configuration.
 #'
 #' @return A named character vector of hex colours.
+#' @keywords internal
 tint_from_names <- function(palette_names, base_colors) {
   pattern <- "^(.+)_tint([0-9]+)$"
   is_tint <- grepl(pattern, palette_names)
@@ -114,6 +115,7 @@ tint_from_names <- function(palette_names, base_colors) {
 #' @param tint A single number between 0 and 2.
 #'
 #' @return A single hex colour value.
+#' @keywords internal
 tint_color <- function(color, tint) {
   if (length(color) != 1 || is.na(color)) {
     cli::cli_abort("`color` must be a single valid colour value.")
