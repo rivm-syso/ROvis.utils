@@ -24,4 +24,5 @@ coverage, and pkgdown.
 ### :bug: Fixed 
 
 ### :coffin: Deprecated
+- function `ro_get_color_palette` is removed from the packages
 
