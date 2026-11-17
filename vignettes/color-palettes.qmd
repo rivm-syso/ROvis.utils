@@ -64,6 +64,13 @@ dat_test_cov |>
   head(5)
 ```
 
+## Color palette
+
+### Visual color palette
+```{r show color palette}
+ro_show_colors(palette_name = "full")
+```
+
 
 ## Coloring ordinal data
 

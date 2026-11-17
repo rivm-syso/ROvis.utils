@@ -2,7 +2,7 @@
 % Please edit documentation in R/ro_get_color_palette.R
 \name{ro_get_color_palette}
 \alias{ro_get_color_palette}
-\title{Return named list with hexcodes RIVM palette}
+\title{Return named list with hexcodes for selected palette}
 \usage{
 ro_get_color_palette(palette_name = "categorical")
 }
@@ -37,7 +37,6 @@ Other ggplot2:
 \code{\link[=get_color_palette]{get_color_palette()}},
 \code{\link[=ro_check_if_font_available]{ro_check_if_font_available()}},
 \code{\link[=ro_color_categorical]{ro_color_categorical()}},
-\code{\link[=ro_color_palette]{ro_color_palette()}},
 \code{\link[=ro_color_seq]{ro_color_seq()}},
 \code{\link[=ro_color_seq_named]{ro_color_seq_named()}},
 \code{\link[=ro_color_validate]{ro_color_validate()}},
@@ -48,14 +47,12 @@ Other ggplot2:
 Other ggplotly:
 \code{\link[=ro_check_if_font_available]{ro_check_if_font_available()}},
 \code{\link[=ro_color_categorical]{ro_color_categorical()}},
-\code{\link[=ro_color_palette]{ro_color_palette()}},
 \code{\link[=ro_color_seq]{ro_color_seq()}},
 \code{\link[=ro_color_seq_named]{ro_color_seq_named()}}
 
 Other plotly:
 \code{\link[=ro_check_if_font_available]{ro_check_if_font_available()}},
 \code{\link[=ro_color_categorical]{ro_color_categorical()}},
-\code{\link[=ro_color_palette]{ro_color_palette()}},
 \code{\link[=ro_color_seq]{ro_color_seq()}},
 \code{\link[=ro_color_seq_named]{ro_color_seq_named()}}
 }

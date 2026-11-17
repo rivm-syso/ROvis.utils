@@ -8,7 +8,8 @@ get_color_palette(palette_name, custom_colors = NULL)
 }
 \arguments{
 \item{palette_name}{A string specifying the name of the palette. Valid options
-are "full", "categorical", "gender_con", "gender_unc", "greys", and "custom".}
+are "full", "categorical", "gender_con", "gender_unc", "greys", and "custom".
+Note, these might differ for other themes.}
 
 \item{custom_colors}{An optional character vector of hexadecimal color codes.
 This parameter is required if \code{palette_name} is "custom".}
@@ -38,7 +39,6 @@ ro_color("robijnrood"), 12)))
 Other ggplot2:
 \code{\link[=ro_check_if_font_available]{ro_check_if_font_available()}},
 \code{\link[=ro_color_categorical]{ro_color_categorical()}},
-\code{\link[=ro_color_palette]{ro_color_palette()}},
 \code{\link[=ro_color_seq]{ro_color_seq()}},
 \code{\link[=ro_color_seq_named]{ro_color_seq_named()}},
 \code{\link[=ro_color_validate]{ro_color_validate()}},

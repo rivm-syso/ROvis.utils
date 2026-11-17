@@ -1,15 +1,15 @@
-#' Show RIVM color palette
+#' Show selected theme color palette
 #' @section Dependencies:
 #'  * \link{ro_color_palette}
 #'
 #' @description
 #' `r ro_group_badge(c('DT', 'echarts4r', 'ggplot2', 'gt', 'plotly'))`
-#' Plots the full RIVM color palette, a specified RIVM color palette, or a custom color palette.
+#' Plots the full selected theme color palette, a specified RIVM color palette, or a custom color palette.
 #' Hoover over the palette to view the hex color codes.
 #'
 #' @param palette_name Character. Default="full".
 #' Can be one of:
-#' * The name of an RIVM palette. Available palettes are:
+#' * The name of a palette. Available palettes for RIVM theme are:
 #'   * `full`: all 18 RIVM colors (full color, 100% tint)
 #'   * `categorical`: best palette for visualizing categories (no variation in tint, good contrast differences)
 #'   * `gender_con`: gender conventional
@@ -62,6 +62,7 @@ ro_show_colors <- function(palette_name = "full", custom_colors = NULL) {
 #'
 #' @param palette_name A string specifying the name of the palette. Valid options
 #' are "full", "categorical", "gender_con", "gender_unc", "greys", and "custom".
+#' Note, these might differ for other themes.
 #' @param custom_colors An optional character vector of hexadecimal color codes.
 #' This parameter is required if `palette_name` is "custom".
 #'
@@ -81,6 +82,7 @@ ro_show_colors <- function(palette_name = "full", custom_colors = NULL) {
 #' (ROvis.utils:::get_color_palette("custom", ro_color_seq(ro_color("robijnrood_tint15"),
 #' ro_color("robijnrood"), 12)))
 #'
+# TODO: Ask if this function should have its own manpage? The function is internal and used no "ro_" prefix
 get_color_palette <- function(palette_name, custom_colors = NULL) {
   palette_name <- arg_match(
     palette_name,
@@ -181,7 +183,15 @@ ro_gg_create_palette <- function(df, palette_name, palette) {
       y = .data$number,
       fill = .data$name,
       label = .data$name,
-      text = str_c("<b> Color number ", .data$number, ": ", .data$name, " (", .data$hex, ")</b>")
+      text = str_c(
+        "<b> Color number ",
+        .data$number,
+        ": ",
+        .data$name,
+        " (",
+        .data$hex,
+        ")</b>"
+      )
     )
   ) +
     geom_tile() +

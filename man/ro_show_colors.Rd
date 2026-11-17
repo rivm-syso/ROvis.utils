@@ -2,7 +2,7 @@
 % Please edit documentation in R/ro_show_colors.R
 \name{ro_show_colors}
 \alias{ro_show_colors}
-\title{Show RIVM color palette}
+\title{Show selected theme color palette}
 \usage{
 ro_show_colors(palette_name = "full", custom_colors = NULL)
 }
@@ -10,7 +10,7 @@ ro_show_colors(palette_name = "full", custom_colors = NULL)
 \item{palette_name}{Character. Default="full".
 Can be one of:
 \itemize{
-\item The name of an RIVM palette. Available palettes are:
+\item The name of a palette. Available palettes for RIVM theme are:
 \itemize{
 \item \code{full}: all 18 RIVM colors (full color, 100\% tint)
 \item \code{categorical}: best palette for visualizing categories (no variation in tint, good contrast differences)
@@ -33,7 +33,7 @@ Color palette in the Viewer pane.
 }
 \description{
 \ifelse{html}{\figure{group-DT.svg}{options: alt='[DT]'}}{\strong{[DT]}}\ifelse{html}{\figure{group-echarts4r.svg}{options: alt='[echarts4r]'}}{\strong{[echarts4r]}}\ifelse{html}{\figure{group-ggplot2.svg}{options: alt='[ggplot2]'}}{\strong{[ggplot2]}}\ifelse{html}{\figure{group-gt.svg}{options: alt='[gt]'}}{\strong{[gt]}}\ifelse{html}{\figure{group-plotly.svg}{options: alt='[plotly]'}}{\strong{[plotly]}}\cr\cr
-Plots the full RIVM color palette, a specified RIVM color palette, or a custom color palette.
+Plots the full selected theme color palette, a specified RIVM color palette, or a custom color palette.
 Hoover over the palette to view the hex color codes.
 }
 \section{Dependencies}{
@@ -63,7 +63,6 @@ Other ggplot2:
 \code{\link[=get_color_palette]{get_color_palette()}},
 \code{\link[=ro_check_if_font_available]{ro_check_if_font_available()}},
 \code{\link[=ro_color_categorical]{ro_color_categorical()}},
-\code{\link[=ro_color_palette]{ro_color_palette()}},
 \code{\link[=ro_color_seq]{ro_color_seq()}},
 \code{\link[=ro_color_seq_named]{ro_color_seq_named()}},
 \code{\link[=ro_color_validate]{ro_color_validate()}},

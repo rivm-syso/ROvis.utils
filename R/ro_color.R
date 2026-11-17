@@ -1,13 +1,13 @@
-#' Return hex code of RIVM colour names
+#' Return hex code of selected theme color names
 #'
-#' Accepts base colour names such as `"hemelblauw"` and tint names such as
-#' `"hemelblauw_tint75"`. By default, base colours are read from the package
+#' Accepts base color names such as `"hemelblauw"` and tint names such as
+#' `"hemelblauw_tint75"`. By default, base colors are read from the package
 #' configuration. You can optionally supply `base_colors` to override them,
 #' which is useful for testing.
 #'
-#' @param color_name Character vector of colour names.
-#' @param base_colors Optional named character vector of base colours. If `NULL`,
-#'   colours are read from the package configuration.
+#' @param color_name Character vector of color names.
+#' @param base_colors Optional named character vector of base colors. If `NULL`,
+#'   colors are read from the package configuration.
 #'
 #' @return A named character vector of hex colour codes.
 #' @export
@@ -49,14 +49,14 @@ ro_color <- function(color_name = "hemelblauw", base_colors = NULL) {
   tint_from_names(color_name, base_colors = base_colors)
 }
 
-#' Resolve colour names to hex codes
+#' Resolve color names to hex codes
 #'
-#' @param palette_names Character vector of colour names, with or without a
+#' @param palette_names Character vector of color names, with or without a
 #'   `_tint<number>` suffix.
-#' @param base_colors Optional named character vector of base colours. If `NULL`,
-#'   colours are read from the package configuration.
+#' @param base_colors Optional named character vector of base colors. If `NULL`,
+#'   colors are read from the package configuration.
 #'
-#' @return A named character vector of hex colours.
+#' @return A named character vector of hex colors.
 tint_from_names <- function(palette_names, base_colors) {
   pattern <- "^(.+)_tint([0-9]+)$"
   is_tint <- grepl(pattern, palette_names)

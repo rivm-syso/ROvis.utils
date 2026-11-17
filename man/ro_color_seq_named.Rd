@@ -52,14 +52,12 @@ ro_color_seq_named(
 Other ggplotly:
 \code{\link[=ro_check_if_font_available]{ro_check_if_font_available()}},
 \code{\link[=ro_color_categorical]{ro_color_categorical()}},
-\code{\link[=ro_color_palette]{ro_color_palette()}},
 \code{\link[=ro_color_seq]{ro_color_seq()}},
 \code{\link[=ro_get_color_palette]{ro_get_color_palette()}}
 
 Other plotly:
 \code{\link[=ro_check_if_font_available]{ro_check_if_font_available()}},
 \code{\link[=ro_color_categorical]{ro_color_categorical()}},
-\code{\link[=ro_color_palette]{ro_color_palette()}},
 \code{\link[=ro_color_seq]{ro_color_seq()}},
 \code{\link[=ro_get_color_palette]{ro_get_color_palette()}}
 
@@ -72,7 +70,6 @@ Other ggplot2:
 \code{\link[=get_color_palette]{get_color_palette()}},
 \code{\link[=ro_check_if_font_available]{ro_check_if_font_available()}},
 \code{\link[=ro_color_categorical]{ro_color_categorical()}},
-\code{\link[=ro_color_palette]{ro_color_palette()}},
 \code{\link[=ro_color_seq]{ro_color_seq()}},
 \code{\link[=ro_color_validate]{ro_color_validate()}},
 \code{\link[=ro_get_color_palette]{ro_get_color_palette()}},

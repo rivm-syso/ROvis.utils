@@ -1,4 +1,4 @@
-#' Return named list with hexcodes RIVM palette
+#' Return named list with hexcodes for selected palette
 #'
 #' `r ro_group_badge(c('echarts4r', 'ggplot2', 'plotly'))`
 #'
