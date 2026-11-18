@@ -19,6 +19,6 @@
 #' ro_color_categorical()
 #'
 ro_color_categorical <- function() {
-  ro_color_palette("categorical") |>
+  ro_get_color_palette("categorical") |>
     unname()
 }

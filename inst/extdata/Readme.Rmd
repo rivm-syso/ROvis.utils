@@ -1,0 +1,7 @@
+---
+title: "Readme"
+output: html_document
+---
+
+Not sure about how to add a new institute?
+See ...

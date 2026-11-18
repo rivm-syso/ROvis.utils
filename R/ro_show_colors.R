@@ -39,10 +39,11 @@
 #'
 #' @return Color palette in the Viewer pane.
 #' @export
+# TODO: Check if custom_colors parameter is still functional / being used
 ro_show_colors <- function(palette_name = "full", custom_colors = NULL) {
   check_installed("plotly")
 
-  palette_list <- get_color_palette(palette_name, custom_colors)
+  palette_list <- ro_get_color_palette(palette_name)
 
   palette_df <- ro_show_colors_get_df(palette_list)
 
@@ -83,6 +84,7 @@ ro_show_colors <- function(palette_name = "full", custom_colors = NULL) {
 #' ro_color("robijnrood"), 12)))
 #'
 # TODO: Ask if this function should have its own manpage? The function is internal and used no "ro_" prefix
+# TODO: Also, the catergory names might differ for others, discuss this.
 get_color_palette <- function(palette_name, custom_colors = NULL) {
   palette_name <- arg_match(
     palette_name,

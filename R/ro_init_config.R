@@ -2,7 +2,7 @@
 #'
 #' Initializes the ROvis configuration by reading a YAML file containing
 #' institute-specific huisstijl colors. The institute and config file
-#' location can be overridden via environment variables, unless
+#' location can be overwritten via environment variables, unless
 #' `ignore_env = TRUE`.
 #'
 #' Environment variables used:
@@ -44,7 +44,7 @@
 #' @export
 ro_init_config <- function(
   institute = "Default",
-  config_path = "inst/extdata/RO_instituten.yaml",
+  config_path = "inst/extdata/",
   ignore_env = FALSE
 ) {
   cli_inform("Initialising ROvis...")
@@ -77,7 +77,10 @@ ro_init_config <- function(
 
   tryCatch(
     {
-      whole_config <- yaml::read_yaml(config_path)
+      whole_config <- yaml::read_yaml(file.path(
+        config_path,
+        paste0(toupper(institute), ".yaml")
+      ))
     },
     error = function(e) {
       cli_abort(
