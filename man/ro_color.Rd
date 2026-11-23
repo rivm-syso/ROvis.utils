@@ -17,7 +17,9 @@ A named character vector of hex colour codes.
 }
 \description{
 Accepts base color names such as \code{"hemelblauw"} and tint names such as
-\code{"hemelblauw_tint75"}. By default, base colors are read from the package
+\code{"hemelblauw_tint75"}  By default, base colors are read from the package
 configuration. You can optionally supply \code{base_colors} to override them,
-which is useful for testing.
+which is useful for testing. Also accepts valid R color names (e.g. \code{"red"},
+\code{"steelblue"}) and hex codes (e.g. "#FF0000"), optionally with a \verb{_tintXX}
+suffix, e.g. \code{"red_tint50"}
 }

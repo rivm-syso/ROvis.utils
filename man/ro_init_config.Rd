@@ -6,7 +6,7 @@
 \usage{
 ro_init_config(
   institute = "Default",
-  config_path = "inst/extdata/RO_instituten.yaml",
+  config_path = "inst/extdata/",
   ignore_env = FALSE
 )
 }
@@ -35,7 +35,7 @@ environment \code{.ro_env} as:
 \description{
 Initializes the ROvis configuration by reading a YAML file containing
 institute-specific huisstijl colors. The institute and config file
-location can be overridden via environment variables, unless
+location can be overwritten via environment variables, unless
 \code{ignore_env = TRUE}.
 }
 \details{

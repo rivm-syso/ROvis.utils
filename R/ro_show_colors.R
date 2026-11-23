@@ -41,9 +41,11 @@
 #' @export
 # TODO: Check if custom_colors parameter is still functional / being used
 ro_show_colors <- function(palette_name = "full", custom_colors = NULL) {
+  check_character(palette_name)
+  check_character(custom_colors, allow_null = TRUE)
   check_installed("plotly")
 
-  palette_list <- ro_get_color_palette(palette_name)
+  palette_list <- ro_get_color_palette(palette_name, custom_colors)
 
   palette_df <- ro_show_colors_get_df(palette_list)
 

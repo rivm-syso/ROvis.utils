@@ -4,7 +4,7 @@
 \alias{ro_get_color_palette}
 \title{Return named list with hexcodes for selected palette}
 \usage{
-ro_get_color_palette(palette_name = "categorical")
+ro_get_color_palette(palette_name = "categorical", custom_colors = NULL)
 }
 \arguments{
 \item{palette_name}{one of:
@@ -15,6 +15,8 @@ ro_get_color_palette(palette_name = "categorical")
 \item "gender_unc": gender unconventional
 \item "greys": all 7 grey tints
 }}
+
+\item{custom_colrs}{default = NULL, only used when custom palette_name is defined. handy for \code{ro_show_colors()}.}
 }
 \value{
 named vector with hex color codes

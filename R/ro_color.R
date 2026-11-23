@@ -1,9 +1,11 @@
 #' Return hex code of selected theme color names
 #'
-#' Accepts base color names such as `"hemelblauw"` and tint names such as
-#' `"hemelblauw_tint75"`. By default, base colors are read from the package
+#'Accepts base color names such as `"hemelblauw"` and tint names such as
+#'   `"hemelblauw_tint75"`  By default, base colors are read from the package
 #' configuration. You can optionally supply `base_colors` to override them,
-#' which is useful for testing.
+#' which is useful for testing. Also accepts valid R color names (e.g. `"red"`,
+#' `"steelblue"`) and hex codes (e.g. "#FF0000"), optionally with a `_tintXX`
+#' suffix, e.g. `"red_tint50"`
 #'
 #' @param color_name Character vector of color names.
 #' @param base_colors Optional named character vector of base colors. If `NULL`,
@@ -12,41 +14,75 @@
 #' @return A named character vector of hex colour codes.
 #' @export
 ro_color <- function(color_name = "hemelblauw", base_colors = NULL) {
+  check_character(color_name)
+  check_character(base_colors, allow_null = TRUE)
+
   # If no manual overwrite colors have been given, use the config instead.
   if (is.null(base_colors)) {
     base_colors <- .ro_env$base_colors
   }
 
+  # Named vector of all built-in R colors as hex
+  r_colors <- stats::setNames(
+    vapply(
+      grDevices::colors(),
+      function(x) {
+        rgb <- grDevices::col2rgb(x)
+        tolower(grDevices::rgb(rgb[1], rgb[2], rgb[3], maxColorValue = 255))
+      },
+      character(1)
+    ),
+    grDevices::colors()
+  )
+
+  # Combine institute palette with base R colors
+  all_base_colors <- c(base_colors, r_colors)
+
+  # Strip optional _tintXX suffix
   pattern <- "^(.+)_tint([0-9]+)$"
+  has_tint <- grepl(pattern, color_name)
   base_name <- ifelse(
-    grepl(pattern, color_name),
+    has_tint,
     sub(pattern, "\\1", color_name),
     color_name
   )
 
+  # Detect valid hex colors
+  is_hex_color <- grepl("^#(?:[A-Fa-f0-9]{3}|[A-Fa-f0-9]{6})$", base_name)
+
+  # If input consists only of plain hex colors without tint, return them directly
+  if (all(is_hex_color & !has_tint)) {
+    return(unname(tolower(base_name)))
+  }
+
+  # Add supplied hex colors as named colors so tint_from_names() can use them
+  if (any(is_hex_color)) {
+    hex_colors <- stats::setNames(
+      base_name[is_hex_color],
+      base_name[is_hex_color]
+    )
+    all_base_colors <- c(all_base_colors, hex_colors)
+  }
+
+  call_loc <- rlang::current_env()
+
   tryCatch(
     {
-      call_loc <- current_env()
       for (color in base_name) {
-        arg_match(color, names(base_colors))
+        rlang::arg_match(color, names(all_base_colors))
       }
     },
     error = function(x) {
       cli_abort(
         c(
-          "!" = "{.arg color_name} must be one of, or a list of,
-          {length(base_colors)} base colour options,
-          optionally followed by a `_tintXX` suffix.",
-          x$body,
-          i = "Run {.run ro_show_colors()} to visualise the colors for each palette
-          ('full', 'categorical', 'gender_con', 'gender_unc', or 'greys')."
+          "!" = "{.arg color_name} must be one of, or a (combined) list of, {length(base_colors)} institute- or {length(r_colors)} base R color names or valid hex codes, optionally followed by a `_tintXX` suffix."
         ),
         call = call_loc
       )
     }
   )
 
-  tint_from_names(color_name, base_colors = base_colors)
+  tint_from_names(color_name, base_colors = all_base_colors)
 }
 
 #' Resolve color names to hex codes
