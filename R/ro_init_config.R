@@ -63,7 +63,7 @@ ro_init_config <- function(
     env_config_path <- Sys.getenv("ROVIS_STYLE_LOCATION", unset = NA)
   }
   # Check if environment variables are detected, if so overwrite function variables.
-  if (!is.na(env_config_path)) {
+  if (!is.na(env_config_path) && env_config_path != "") {
     cli_inform("Environment variable {.var ROVIS_STYLE_LOCATION} detected.")
     config_path <- env_custom_path
   }
