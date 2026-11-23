@@ -30,7 +30,7 @@ Convenience wrapper around \code{\link[=Sys.getenv]{Sys.getenv()}} to fetch
 \code{ROVIS_STYLE} and \code{ROVIS_STYLE_LOCATION} (or any subset).
 }
 \examples{
-get_rovis_env("ROVIS_STYLE")
-get_rovis_env(c("ROVIS_STYLE", "ROVIS_STYLE_LOCATION"))
+ro_get_rovis_env("ROVIS_STYLE")
+ro_get_rovis_env(c("ROVIS_STYLE", "ROVIS_STYLE_LOCATION"))
 
 }

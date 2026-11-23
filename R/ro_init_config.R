@@ -134,8 +134,8 @@ ro_init_config <- function(
 #' After saving, restart R so the changes take effect.
 #'
 #' @examples
-#' get_rovis_env("ROVIS_STYLE")
-#' get_rovis_env(c("ROVIS_STYLE", "ROVIS_STYLE_LOCATION"))
+#' ro_get_rovis_env("ROVIS_STYLE")
+#' ro_get_rovis_env(c("ROVIS_STYLE", "ROVIS_STYLE_LOCATION"))
 #'
 #' @export
 ro_get_config_env <- function(var = c("ROVIS_STYLE", "ROVIS_STYLE_LOCATION")) {
