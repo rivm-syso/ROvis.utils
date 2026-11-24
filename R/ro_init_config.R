@@ -75,10 +75,6 @@ ro_init_config <- function(
     institute <- env_institute
   }
 
-  tmp <- file.path(
-    config_path,
-    paste0(toupper(institute), ".yaml")
-  )
   tryCatch(
     {
       whole_config <- yaml::read_yaml(file.path(
@@ -90,7 +86,7 @@ ro_init_config <- function(
       cli_abort(
         c(
           "!" = "Something went wrong whilst trying to read the config file in location {.val {config_path}}",
-          "x" = "Current error: {e} \n {tmp}"
+          "x" = "Current error: {e}"
         )
       )
     }
