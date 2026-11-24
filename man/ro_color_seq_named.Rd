@@ -9,7 +9,7 @@ ro_color_seq_named(
   low_col = "robijnrood",
   high_col = "robijnrood_tint15",
   NA_cat_name = "NA",
-  NA_cat_col = "grijs_5"
+  NA_cat_col = "#999999"
 )
 }
 \arguments{

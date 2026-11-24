@@ -22,6 +22,7 @@ library(tidyr)
 library(lubridate)
 library(ggplot2)
 library(ROvis.utils) # nolint: missing_package_linter
+ro_init_config(institute = "RIVM", config_path = "../inst/extdata/", ignore_env = TRUE) # Not needed but for clarity
 ```
 
 Second, we generate simulated data that mimics the structure of COVID-19 test data. We will use data for January 2022 for example graphs.

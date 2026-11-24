@@ -24,14 +24,14 @@ is unnamed, this function names the colors by position (from 1 to \code{length(c
 }
 \examples{
 # Examples with a predefined palette
-(ROvis.utils:::get_color_palette("full"))
-(ROvis.utils:::get_color_palette("gender_unc"))
+(ROvis.utils:::ro_get_color_palette("full"))
+(ROvis.utils:::ro_get_color_palette("gender_uncon"))
 
 # Example with a custom palette using hexcodes directly
-(ROvis.utils:::get_color_palette("custom", c("#FF5733", "#33FF57", "#3357FF")))
+(ROvis.utils:::ro_get_color_palette("custom", c("#FF5733", "#33FF57", "#3357FF")))
 
 # Example using 'ro_color()'
-(ROvis.utils:::get_color_palette("custom", ro_color_seq(ro_color("robijnrood_tint15"),
+(ROvis.utils:::ro_get_color_palette("custom", ro_color_seq(ro_color("robijnrood_tint15"),
 ro_color("robijnrood"), 12)))
 
 }

@@ -39,17 +39,27 @@ ro_color_seq_named <- function(
   low_col = "robijnrood",
   high_col = "robijnrood_tint15",
   NA_cat_name = "NA",
-  NA_cat_col = "grijs_5"
+  NA_cat_col = "#999999"
 ) {
   if (length(cat_names) < 2) {
-    cli_abort("{.var cat_names} should be a vector of at least 2 categories to generate a gradient!")
+    cli_abort(
+      "{.var cat_names} should be a vector of at least 2 categories to generate a gradient!"
+    )
   }
 
   if (any(cat_names == NA_cat_name)) {
-    custom_colors <- ro_color_seq(ro_color(low_col), ro_color(high_col), length(unique(cat_names)) - 1)
+    custom_colors <- ro_color_seq(
+      ro_color(low_col),
+      ro_color(high_col),
+      length(unique(cat_names)) - 1
+    )
     custom_colors <- c(custom_colors, ro_color(NA_cat_col))
   } else {
-    custom_colors <- ro_color_seq(ro_color(low_col), ro_color(high_col), length(unique(cat_names)))
+    custom_colors <- ro_color_seq(
+      ro_color(low_col),
+      ro_color(high_col),
+      length(unique(cat_names))
+    )
   }
 
   names(custom_colors) <- cat_names
