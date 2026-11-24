@@ -75,6 +75,10 @@ ro_init_config <- function(
     institute <- env_institute
   }
 
+  tmp <- file.path(
+    config_path,
+    paste0(toupper(institute), ".yaml")
+  )
   tryCatch(
     {
       whole_config <- yaml::read_yaml(file.path(
@@ -84,7 +88,10 @@ ro_init_config <- function(
     },
     error = function(e) {
       cli_abort(
-        "Something went wrong whilst trying to read the config file in location {.val {config_path}}"
+        c(
+          "!" = "Something went wrong whilst trying to read the config file in location {.val {config_path}}",
+          "x" = "Current error: {e} \n {tmp}"
+        )
       )
     }
   )
@@ -134,8 +141,10 @@ ro_init_config <- function(
 #' After saving, restart R so the changes take effect.
 #'
 #' @examples
+#' \dontrun{
 #' ro_get_rovis_env("ROVIS_STYLE")
 #' ro_get_rovis_env(c("ROVIS_STYLE", "ROVIS_STYLE_LOCATION"))
+#' }
 #'
 #' @export
 ro_get_config_env <- function(var = c("ROVIS_STYLE", "ROVIS_STYLE_LOCATION")) {
